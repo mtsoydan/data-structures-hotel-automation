@@ -51,6 +51,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HashEntry.cs" />
+    <Compile Include="HashMapChain.cs" />
+    <Compile Include="Heap.cs" />
+    <Compile Include="HeapDugumu.cs" />
+    <Compile Include="IkiliAramaAgaci.cs" />
+    <Compile Include="IkiliAramaAgaciDugumu.cs" />
+    <Compile Include="LinkedListOtelYorum.cs" />
+    <Compile Include="LinkedListPersonelBİlgi.cs" />
+    <Compile Include="ListADT.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="OtelBilgi.cs" />
+    <Compile Include="PersonelBilgi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
