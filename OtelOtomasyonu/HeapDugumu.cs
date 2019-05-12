@@ -8,8 +8,8 @@ namespace OtelOtomasyonu
 {
    public class HeapDugumu
     {
-        public PersonelBilgi otel { get; set; }
-        public HeapDugumu(PersonelBilgi o)
+        public OtelBilgi otel { get; set; }
+        public HeapDugumu(OtelBilgi o)
         {
             this.otel = o;
         }
