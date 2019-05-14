@@ -8,7 +8,7 @@ namespace OtelOtomasyonu
 {
    public class Heap
     {
-        public HeapDugumu[] heapArrayYıldız;
+        //public HeapDugumu[] heapArrayYıldız;
         public HeapDugumu[] heapArrayPuan;
 
         private int maxSize;
@@ -18,7 +18,7 @@ namespace OtelOtomasyonu
         {
             maxSize = maxHeapSize;
             currentSize = 0;
-            heapArrayYıldız = new HeapDugumu[maxSize];
+            //heapArrayYıldız = new HeapDugumu[maxSize];
             heapArrayPuan = new HeapDugumu[maxSize];
 
 
@@ -67,18 +67,18 @@ namespace OtelOtomasyonu
 
         }
 
-        //public HeapDugumu RemoveMax()
-        //{
-        //    HeapDugumu root = heapArrayPuan[0];
-        //    heapArrayPuan[0] = heapArrayPuan[--currentSize];
-        //    MoveToDown(0);
-        //    return root;
-        //}
+        public HeapDugumu RemoveMax()
+        {
+            HeapDugumu root = heapArrayPuan[0];
+            heapArrayPuan[0] = heapArrayPuan[--currentSize];
+            MoveToDown(0);
+            return root;
+        }
 
-        //public OtelBilgi MaxHeapGetir()
-        //{
-        //    return heapArrayPuan[0].otel;
-        //}
+        public OtelBilgi MaxHeapGetir()
+        {
+            return heapArrayPuan[0].otel;
+        }
 
         private void MoveToDown(int index)
         {
