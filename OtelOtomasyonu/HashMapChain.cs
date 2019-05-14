@@ -25,17 +25,17 @@ namespace OtelOtomasyonu
             if (table[hash] == null)
             {
                 table[hash] = new HashEntry(key);
-                //table[hash].h = new Heap(100);
-                //table[hash].h.Insert(value);
+                table[hash].h = new Heap(100);
+                table[hash].h.InsertPuan(value);
             }
             else
             {
-               // table[hash].h.Insert(value);
+                table[hash].h.InsertPuan(value);
             }
 
         }
 
-        private int hashFonksiyonu(string key, int tabloBoyutu)
+        public int hashFonksiyonu(string key, int tabloBoyutu)
         {
             int sonuc = 0;
 
@@ -50,11 +50,11 @@ namespace OtelOtomasyonu
         }
         public void OtelBilgiGuncelle(Heap h, OtelBilgi otel)
         {
-            //for (int i = 0; i < h.currentSize; i++)
-            //{
-            //    if (h.heapArray[i].otel. == ogr.ogrenciNo)
-            //        h.heapArray[i].ogr = ogr;
-            //}
+            for (int i = 0; i < h.currentSize; i++)
+            {
+                if (h.heapArrayPuan[i].otel.OtelID == otel.OtelID)
+                    h.heapArrayPuan[i].otel = otel;
+            }
         }
     }
 }

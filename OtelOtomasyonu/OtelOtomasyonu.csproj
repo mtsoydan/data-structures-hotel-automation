@@ -69,6 +69,7 @@
     <Compile Include="ListADT.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="OtelBilgi.cs" />
+    <Compile Include="OtelYorum.cs" />
     <Compile Include="PersonelBilgi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PerosnelBilgi>
+  <Personel id='1'>
+    <OtelId>1</OtelId>
+    <Ad>Ali</Ad>
+    <Soyad>Acar</Soyad>
+    <Telefon>055445477</Telefon>
+    <EPosta>aliacar@gmail.com</EPosta>
+    <Adres>Alacati/Izmir Turkiye</Adres>
+    <Departman>A</Departman>
+    <Pozisyon>B</Pozisyon>
+    <PersonelPuani>7</PersonelPuani>
+  </Personel>
+  <Personel id='2'>
+    <OtelId>1</OtelId>
+    <Ad>Serife</Ad>
+    <Soyad>Asil</Soyad>
+    <Telefon>0557895477</Telefon>
+    <EPosta>serifeasil@gmail.com</EPosta>
+    <Adres>Bornava/Izmir Turkiye</Adres>
+    <Departman>A</Departman>
+    <Pozisyon>C</Pozisyon>
+    <PersonelPuani>6</PersonelPuani>
+  </Personel>
+  <Personel id='3'>
+    <OtelId>3</OtelId>
+    <Ad>Edis</Ad>
+    <Soyad>Gorgulu</Soyad>
+    <Telefon>0557775477</Telefon>
+    <EPosta>edisgorgulu@gmail.com</EPosta>
+    <Adres>Taksim/Istanbul Turkiye</Adres>
+    <Departman>Eglence</Departman>
+    <Pozisyon>Sarkıcı</Pozisyon>
+    <PersonelPuani>10</PersonelPuani>
+  </Personel>
+  <Personel id='4'>
+    <OtelId>2</OtelId>
+    <Ad>Elif</Ad>
+    <Soyad>Batur</Soyad>
+    <Telefon>05587795477</Telefon>
+    <EPosta>elifbatur@gmail.com</EPosta>
+    <Adres>Demre/Antalya Turkiye</Adres>
+    <Departman>D</Departman>
+    <Pozisyon>C</Pozisyon>
+    <PersonelPuani>5</PersonelPuani>
+  </Personel>
+  <Personel id='5'>
+    <OtelId>2</OtelId>
+    <Ad>Ahmet</Ad>
+    <Soyad>Boz</Soyad>
+    <Telefon>05578957847</Telefon>
+    <EPosta>ahmetboz@gmail.com</EPosta>
+    <Adres>Efeler/Aydin Turkiye</Adres>
+    <Departman>F</Departman>
+    <Pozisyon>G</Pozisyon>
+    <PersonelPuani>3</PersonelPuani>
+  </Personel>
+  <Personel id='6'>
+    <OtelId>4</OtelId>
+    <Ad>Asuman</Ad>
+    <Soyad>Zencir</Soyad>
+    <Telefon>0524595477</Telefon>
+    <EPosta>asumanzencir@gmail.com</EPosta>
+    <Adres>Anamur/Mersin Turkiye</Adres>
+    <Departman>Z</Departman>
+    <Pozisyon>H</Pozisyon>
+    <PersonelPuani>9</PersonelPuani>
+  </Personel>
+  <Personel id='7'>
+    <OtelId>4</OtelId>
+    <Ad>Fatma</Ad>
+    <Soyad>Tugce</Soyad>
+    <Telefon>054495477</Telefon>
+    <EPosta>fatmatugce@gmail.com</EPosta>
+    <Adres>Bornava/Izmir Turkiye</Adres>
+    <Departman>A</Departman>
+    <Pozisyon>C</Pozisyon>
+    <PersonelPuani>8</PersonelPuani>
+  </Personel>
+  <Personel id='8'>
+    <OtelId>5</OtelId>
+    <Ad>Kamil</Ad>
+    <Soyad>Kara</Soyad>
+    <Telefon>0512895477</Telefon>
+    <EPosta>kamilkara@gmail.com</EPosta>
+    <Adres>Goreme/Nevsehir</Adres>
+    <Departman>A</Departman>
+    <Pozisyon>C</Pozisyon>
+    <PersonelPuani>3</PersonelPuani>
+  </Personel>
+  <Personel id='9'>
+    <OtelId>5</OtelId>
+    <Ad>Elvan</Ad>
+    <Soyad>Catar</Soyad>
+    <Telefon>0557366477</Telefon>
+    <EPosta>elvancatal@gmail.com</EPosta>
+    <Adres>Anamur/Mersin Turkiye</Adres>
+    <Departman>K</Departman>
+    <Pozisyon>I</Pozisyon>
+    <PersonelPuani>4</PersonelPuani>
+  </Personel>
+  <Personel id='10'>
+    <OtelId>2</OtelId>
+    <Ad>Azize</Ad>
+    <Soyad>Kaya</Soyad>
+    <Telefon>0559995477</Telefon>
+    <EPosta>azizekaya@gmail.com</EPosta>
+    <Adres>Alacati/Izmir Turkiye</Adres>
+    <Departman>S</Departman>
+    <Pozisyon>C</Pozisyon>
+    <PersonelPuani>1</PersonelPuani>
+  </Personel>
+</PerosnelBilgi>

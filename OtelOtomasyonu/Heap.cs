@@ -21,7 +21,6 @@ namespace OtelOtomasyonu
             heapArrayYıldız = new HeapDugumu[maxSize];
             heapArrayPuan = new HeapDugumu[maxSize];
 
-
         }
         public bool IsEmpty()
         {
@@ -80,7 +79,7 @@ namespace OtelOtomasyonu
         //    return heapArrayPuan[0].otel;
         //}
 
-        private void MoveToDown(int index)
+        private void MoveToDownPuan(int index)
         {
             int largerChild;
             HeapDugumu top = heapArrayPuan[index];
@@ -108,7 +107,7 @@ namespace OtelOtomasyonu
             for (int m = 0; m < currentSize; m++)
             {
                 if (heapArrayPuan[m] != null)
-                    temp += "Adı-Soyadı:" + (heapArrayPuan[m].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[m].otel.Il + heapArrayPuan[m].otel.Ilce +
+                    temp += "Adı-Soyadı:" + (heapArrayPuan[m].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[m].otel.Il_Ilce +
                         "Adresi:" + heapArrayPuan[m].otel.Adres + " " + "E-posta:" + heapArrayPuan[m].otel.EPosta + " "+
                          "Telefon Numarası:" + heapArrayPuan[m].otel.Telefon + " " + "Yıldız Sayısı:"
                         + heapArrayPuan[m].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[m].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[m].otel.OdaTipi +" "+
@@ -129,7 +128,7 @@ namespace OtelOtomasyonu
             for (int m = 0; m < currentSize; m++)
             {
                 if (heapArrayPuan[m] != null && heapArrayPuan[m].otel.OtelPuani == puan )
-                    temp += "Adı-Soyadı:" + (heapArrayPuan[m].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[m].otel.Il + heapArrayPuan[m].otel.Ilce +
+                    temp += "Adı-Soyadı:" + (heapArrayPuan[m].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[m].otel.Il_Ilce+
                         "Adresi:" + heapArrayPuan[m].otel.Adres + " " + "E-posta:" + heapArrayPuan[m].otel.EPosta + " " +
                          "Telefon Numarası:" + heapArrayPuan[m].otel.Telefon + " " + "Yıldız Sayısı:"
                         + heapArrayPuan[m].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[m].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[m].otel.OdaTipi + " " +
@@ -153,7 +152,7 @@ namespace OtelOtomasyonu
             }
             HeapDugumu root = heapArrayPuan[indis];
             heapArrayPuan[indis] = heapArrayPuan[--currentSize];
-            MoveToDown(indis);
+            MoveToDownPuan(indis);
             return root;
         }
 

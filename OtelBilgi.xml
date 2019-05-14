@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OtelBilgi>
+  <Otel id='1'>
+    <OtelAdi>Yakamoz</OtelAdi>
+    <Il_Ilce>Izmir-Alacati</Il_Ilce>
+    <Adres>Alacati/Izmir Turkiye</Adres>
+    <Telefon>055445477</Telefon> 
+    <EPosta>yakamoz@gmail.com</EPosta>
+    <YildizSayisi>3</YildizSayisi> 
+    <OdaSayisi>100</OdaSayisi>
+    <OdaTipi>Deniz Manzarali</OdaTipi>
+    <OtelPuani>7</OtelPuani>
+  </Otel>
+
+  <Otel id="2">
+    <OtelAdi>Ramada Plaza</OtelAdi>
+    <Il_Ilce>Antalya-Demre</Il_Ilce>
+    <Adres>Demre/Antalya Turkiye</Adres>
+    <Telefon>055423458</Telefon> 
+    <EPosta>ramadaplaza@gmail.com</EPosta>
+    <YildizSayisi>4</YildizSayisi> 
+    <OdaSayisi>120</OdaSayisi>
+    <OdaTipi>Sehir Manzarali</OdaTipi>
+    <OtelPuani>6</OtelPuani>
+  </Otel>
+
+  <Otel id="3">
+    <OtelAdi>Anemon</OtelAdi>
+    <Il_Ilce>Izmir-Cesme</Il_Ilce>
+    <Adres>Cesme/Izmir Turkiye</Adres>
+    <Telefon>056248713</Telefon> 
+    <EPosta>anemon@gmail.com</EPosta>
+    <YildizSayisi>2</YildizSayisi> 
+    <OdaSayisi>50</OdaSayisi>
+    <OdaTipi>Orman Manzarali</OdaTipi>
+    <OtelPuani>8</OtelPuani>
+  </Otel>
+  <Otel id="4">
+    <OtelAdi>Palmiye</OtelAdi>
+    <Il_Ilce>Mersin-Anamur</Il_Ilce>
+    <Adres>Anamur/Mersin Turkiye</Adres>
+    <Telefon>054789713</Telefon>
+    <EPosta>palmiye@gmail.com</EPosta>
+    <YildizSayisi>4</YildizSayisi>
+    <OdaSayisi>90</OdaSayisi>
+    <OdaTipi>Deniz Manzarali</OdaTipi>
+    <OtelPuani>5</OtelPuani>
+  </Otel>
+  <Otel id="5">
+    <OtelAdi>Avanos</OtelAdi>
+    <Il_Ilce>Nevsehir-Kapadokya</Il_Ilce>
+    <Adres>Kapadokya/Nevsehir Turkiye</Adres>
+    <Telefon>058248112</Telefon>
+    <EPosta>avanos@gmail.com</EPosta>
+    <YildizSayisi>5</YildizSayisi>
+    <OdaSayisi>40</OdaSayisi>
+    <OdaTipi>Kara Manzarali</OdaTipi>
+    <OtelPuani>9</OtelPuani>
+  </Otel>
+</OtelBilgi>

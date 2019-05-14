@@ -10,13 +10,10 @@ namespace OtelOtomasyonu
     {
         public int OtelID { get; set; }
         public string OtelAdi { get; set; }
-        public string Il { get; set; }
-        public string Ilce { get; set; }
+        public string Il_Ilce { get; set; }
         public string Adres { get; set; }
         public string Telefon { get; set; }
         public string EPosta { get; set; }
-
-
         public int YildizSayisi { get; set; }
         public int OdaSayisi { get; set; }
         public string OdaTipi { get; set; }
@@ -24,7 +21,7 @@ namespace OtelOtomasyonu
 
         public LinkedListOtelYorum OtelYorumList { get; set; }
         public LinkedListPersonelBİlgi PersonelBilgiList { get; set; }
-
+        
         public OtelBilgi()
         {
             OtelYorumList = new LinkedListOtelYorum();

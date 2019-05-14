@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OtelOtomasyonu
 {
-   public class IkiliAramaAgaci
+    public class IkiliAramaAgaci
     {
         private IkiliAramaAgaciDugumu kok;
         private string dugumler;
@@ -14,7 +14,11 @@ namespace OtelOtomasyonu
         public string advancedTemp = " ";
         public bool kilit = false;
         public int Yukseklik = -1;
-        
+
+        public IkiliAramaAgaci()
+        {
+
+        }
         public IkiliAramaAgaci(IkiliAramaAgaciDugumu kok)
         {
             this.kok = kok;
@@ -23,6 +27,10 @@ namespace OtelOtomasyonu
         public int DugumSayisi()
         {
             return DugumSayisi(kok);
+        }
+        public string DugumleriYazdir()
+        {
+            return dugumler;
         }
         public int DugumSayisi(IkiliAramaAgaciDugumu dugum)
         {
@@ -50,7 +58,10 @@ namespace OtelOtomasyonu
         }
         private void Ziyaret(IkiliAramaAgaciDugumu dugum)
         {
-            dugumler += "Adı"  + dugum.veri.OtelAdi + " " + "Otel Yorumları--> " + dugum.veri.OtelYorumList.DisplayElements() + Environment.NewLine + Environment.NewLine;
+            dugumler += "Adı: " + dugum.veri.OtelAdi + " " + "Il-Ilçe: " + dugum.veri.Il_Ilce + " " + "Adres: " + dugum.veri.Adres + " " +
+            "Telefon: " + dugum.veri.Telefon + " " + "EPosta: " + dugum.veri.EPosta + " " + "Yıldız Sayısı: " + dugum.veri.YildizSayisi + " " + Environment.NewLine +
+            "Oda Sayısı: " + dugum.veri.OdaSayisi + " " + "Oda Tipi: " + dugum.veri.OdaTipi + " " + "Puan: " + dugum.veri.OtelPuani +
+            Environment.NewLine + "Otel Yorumları--> " + dugum.veri.OtelYorumList.DisplayElements() + Environment.NewLine;
         }
         public void InOrder()
         {
@@ -78,7 +89,24 @@ namespace OtelOtomasyonu
             PostOrderInt(dugum.sag);
             Ziyaret(dugum);
         }
-        public void Ekle(OtelBilgi deger)
+        public IkiliAramaAgaciDugumu OtelIDAra(int anahtar)
+        {
+            return OtelIDAraInt(kok, anahtar);
+        }
+        private IkiliAramaAgaciDugumu OtelIDAraInt(IkiliAramaAgaciDugumu dugum,
+                                            int anahtar)
+        {
+            if (dugum == null)
+                return null;
+            else if ((int)dugum.veri.OtelID == anahtar)
+                return dugum;
+            else if ((int)dugum.veri.OtelID > anahtar)
+                return (OtelIDAraInt(dugum.sol, anahtar));
+            else
+                return (OtelIDAraInt(dugum.sag, anahtar));
+        }
+
+        public void OtelEkle(OtelBilgi deger)
         {
 
             IkiliAramaAgaciDugumu tempParent = new IkiliAramaAgaciDugumu();
@@ -125,7 +153,7 @@ namespace OtelOtomasyonu
             }
             return successor;
         }
-        public bool Sil(int deger)
+        public bool OtelSil(int deger)
         {
             IkiliAramaAgaciDugumu current = kok;
             IkiliAramaAgaciDugumu parent = kok;
@@ -195,7 +223,7 @@ namespace OtelOtomasyonu
         {
             return OtelBilgiGuncelle(kok, otel);
         }
-        private IkiliAramaAgaciDugumu OtelBilgiGuncelle(IkiliAramaAgaciDugumu dugum,OtelBilgi otel)
+        private IkiliAramaAgaciDugumu OtelBilgiGuncelle(IkiliAramaAgaciDugumu dugum, OtelBilgi otel)
         {
 
             if ((int)dugum.veri.OtelID == otel.OtelID)
@@ -212,11 +240,11 @@ namespace OtelOtomasyonu
 
         public void PreOrderAdvanced(OtelBilgi otel)
         {
-            ZiyaretAdvanced(kok,otel);
+            ZiyaretAdvanced(kok, otel);
         }
 
 
-        private void ZiyaretAdvanced(IkiliAramaAgaciDugumu dugum,OtelBilgi otel)
+        private void ZiyaretAdvanced(IkiliAramaAgaciDugumu dugum, OtelBilgi otel)
         {
 
             if (dugum == null)
@@ -227,8 +255,8 @@ namespace OtelOtomasyonu
                 advancedTemp += "Otel Adı:" + dugum.veri.OtelAdi + Environment.NewLine;
             }
 
-            ZiyaretAdvanced(dugum.sol,otel);
-            ZiyaretAdvanced(dugum.sag,otel);
+            ZiyaretAdvanced(dugum.sol, otel);
+            ZiyaretAdvanced(dugum.sag, otel);
 
         }
 
@@ -250,6 +278,5 @@ namespace OtelOtomasyonu
             Yukseklik = -1;
             DerinlikBulInt(kok);
         }
-
     }
 }

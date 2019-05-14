@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,114 +17,187 @@ namespace OtelOtomasyonu
         public Form1()
         {
             InitializeComponent();
+            txt_sifre.PasswordChar = '*';
+
+        }
+        IkiliAramaAgaciDugumu aramaDugum = new IkiliAramaAgaciDugumu();
+        IkiliAramaAgaci aramaAgaci = new IkiliAramaAgaci();
+       // LinkedListPersonelBİlgi linkedPer = new LinkedListPersonelBİlgi();
+       //  LinkedListOtelYorum linkedYorum = new LinkedListOtelYorum();
+        HashMapChain hashMap = new HashMapChain();
+        OtelBilgi OtelBilgi;
+
+        int otelId=5;
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+            cmbBox_ililce.Enabled = false;
+            cmbBox_otelListe.Enabled = false;
+            XmlOtelListele();
+        }
+        public void XmlOtelListele()
+        {
+            OtelBilgi otel = new OtelBilgi();
+            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
+            XElement rootElement = xDoc.Root;
+            foreach (XElement otelXml in rootElement.Elements())
+            {
+
+                //xml den çekme
+                otel.OtelID = Convert.ToInt32(otelXml.Attribute("id").Value);
+                otel.OtelAdi = otelXml.Element("OtelAdi").Value;
+                otel.Il_Ilce = otelXml.Element("Il_Ilce").Value;
+                otel.Adres = otelXml.Element("Adres").Value;
+                otel.Telefon = otelXml.Element("Telefon").Value;
+                otel.EPosta = otelXml.Element("EPosta").Value;
+                otel.YildizSayisi = Convert.ToInt32(otelXml.Element("YildizSayisi").Value);
+                otel.OdaSayisi = Convert.ToInt32(otelXml.Element("OdaSayisi").Value);
+                otel.OdaTipi = otelXml.Element("OdaTipi").Value;
+                otel.OtelPuani = Convert.ToInt32(otelXml.Element("OtelPuani").Value);
+               
+                //arama ağacına ve hash e ekleme
+                hashMap.Add(otel.Il_Ilce, otel);
+                aramaAgaci.OtelEkle(otel);
+                
+            }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        public void XmlPersonelListele()
+        {
+            PersonelBilgi per = new PersonelBilgi();
+            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
+            XElement rootElement = xDoc.Root;
+            foreach (XElement perXml in rootElement.Elements())
+            {
+                //xml den çekme
+                per.TC = Convert.ToInt32(perXml.Attribute("id").Value);
+                per.Ad = perXml.Element("Ad").Value;
+                per.Soyad = perXml.Element("Soyad").Value;
+                per.Adres = perXml.Element("Adres").Value;
+                per.Telefon = perXml.Element("Telefon").Value;
+                per.EPosta = perXml.Element("EPosta").Value;
+                per.Departman = perXml.Element("Departman").Value;
+                per.Pozisyon = perXml.Element("Pozisyon").Value;
+                per.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
+
+                 aramaAgaci.OtelIDAra(Convert.ToInt32(perXml.Element("OtelId").Value));
+                 ///
+                 OtelBilgi.PersonelBilgiList.InsertLast(per);
+
+            }
+        }
+        private void cmbBox_otelListele_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbBox_otelListele.Text == "İl-İlçe")
+            {
+                cmbBox_ililce.Enabled = true;
+            }
+            else
+            {
+                //listeleme tüm oteller
+                //aramaAgaci.PostOrder();
+                //textListeleOtel.Text = aramaAgaci.DugumleriYazdir();
+            }
+        }
+
+        private void cmbBox_il_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
+        private void cmbBox_gIL_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void panel8_Paint(object sender, PaintEventArgs e)
+        private void btn_girisYap_Click(object sender, EventArgs e)
         {
+            if(txt_kullaniciAdi.Text=="m"&&txt_sifre.Text=="m")
+            {
+                tabCtrl.Controls.Remove(tbpDuzenle);
+                tabCtrl2.Controls.Remove(tbpListelePersonel);
+                tabCtrl2.Controls.Remove(tbpPuanlaPersonel);
+                
+            }
+            else if (txt_kullaniciAdi.Text == "a" && txt_sifre.Text == "a")
+            {
+                tabCtrl2.Controls.Remove(tbpPuanOtel);
+                tabCtrl2.Controls.Remove(tbpListeleOtel);
+
+            }
+            else
+                MessageBox.Show("Giriş Başarısız");
+
+            txt_kullaniciAdi.Text = "";
+            txt_sifre.Text = "";
+            tabCtrl.SelectedIndex = 1;
+        }
+
+        private void btn_OtelKaydet_Click(object sender, EventArgs e)
+        {
+            OtelBilgi otel = new OtelBilgi();
+            otel.OtelID = otelId++;
+            otel.OtelAdi = txt_otelAdi.Text;
+            otel.Il_Ilce = cmbBox_ililce.Text;
+            otel.Adres= txt_otelAdres.Text;
+            otel.EPosta = txt_OtelPosta.Text;
+            otel.OdaSayisi = Convert.ToInt32(txt_OtelOdaSayisi.Text);
+            otel.Telefon = txt_OtelTelefon.Text;
+            otel.YildizSayisi = Convert.ToInt32(txt_OtelYildiz.Text);
+            otel.OtelPuani = Convert.ToInt32("") ;
+            otel.OdaTipi = txt_OtelOdaTipi.Text;
+
+            hashMap.Add(otel.Il_Ilce, otel);
+            aramaAgaci.OtelEkle(otel);
+            MessageBox.Show("Kayıt Başarılı Bir Şekilde Eklendi");
+
+        }
+        private void cmbBox_ililce_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbBox_otelListe.Enabled = true;
+        }
+        
+        private void btn_otelGuncelle_Click(object sender, EventArgs e)
+        {
+            OtelBilgi otel = new OtelBilgi();
+           
+                if (otel.OtelAdi== cmbBox_gOtelAd.Text)
+                {
+               // otel.OtelID = ;
+                otel.Il_Ilce = cmbBox_gOtelILce.Text;
+                otel.Adres = txt_gOtelAdres.Text;
+                otel.EPosta = txt_gOtelTelefon.Text;
+                otel.Telefon = txt_gOtelPosta.Text;
+                otel.OdaSayisi =Convert.ToInt32( txt_gOtelYildiz.Text);
+                otel.OdaTipi = txt_gOtelOdaSayisi.Text;
+                otel.OtelPuani= Convert.ToInt32(txt_gOtelOdaTipi.Text);
+                otel.YildizSayisi = Convert.ToInt32(cmbBox_gOtelPuan.Text);
+                }
+                //agac ve hash içinde güncelleme
+            aramaAgaci.OtelBilgiGuncelle(otel);
+            int hIndis = hashMap.hashFonksiyonu(otel.Il_Ilce, 10);
+            hashMap.OtelBilgiGuncelle(hashMap.table[hIndis].h, otel);
+            MessageBox.Show("Kayıt Başarılı Bir Şekilde Güncellendi");
+
+        }
+       
+        private void btn_OtelSil_Click(object sender, EventArgs e)
+        {
+            OtelBilgi otel = new OtelBilgi();
+            otel.OtelID = Convert.ToInt32(cmbBox_otelSil.Text);
+
+            aramaDugum = aramaAgaci.OtelIDAra(Convert.ToInt32(cmbBox_otelSil.Text));
+            aramaAgaci.OtelSil(otel.OtelID);
+            string anahtar = aramaDugum.veri.Il_Ilce;
+            int hIndis = hashMap.hashFonksiyonu(anahtar, 3);
+            hashMap.table[hIndis].h.ElemanSil(aramaDugum.veri);
+            MessageBox.Show("Kayıt Başarılı Bir Şekilde Silindi");
 
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tabControl3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel9_Paint(object sender, PaintEventArgs e)
+        private void tbpListeleOtel_Click(object sender, EventArgs e)
         {
 
         }
@@ -131,288 +206,11 @@ namespace OtelOtomasyonu
         {
 
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox10_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox14_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox15_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox16_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label30_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label61_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox10_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBoxIL_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cmbBoxListeILCE.Enabled = true;
-            cmbBoxListeILCE.Items.Clear();
-            if (cmbBoxListeIL.Text=="İzmir")
-            {
-                cmbBoxListeILCE.Items.Add("Alaçatı");
-                cmbBoxListeILCE.Items.Add("Çeşme");
-            }
-            if(cmbBoxListeIL.Text == "Antalya")
-            {
-                cmbBoxListeILCE.Items.Add("Demre");
-                cmbBoxListeILCE.Items.Add("Manavgat");
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            cmbBoxListeIL.Enabled = false;
-            cmbBoxListeILCE.Enabled = false;
-            cmbBox_ilce.Enabled = false;
-            cmbBox_gOtelILce.Enabled = true;
-
-
-
-
-        }
-
-        private void cmbBox_otelListele_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbBox_otelListele.Text== "İl-İlçe")
-            {
-                cmbBoxListeIL.Enabled = true;
-            }
-        }
-
-        private void cmbBox_il_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cmbBox_ilce.Enabled = true;
-            cmbBox_ilce.Items.Clear();
-            if (cmbBox_il.Text == "İzmir")
-            {
-                cmbBox_ilce.Items.Add("Alaçatı");
-                cmbBox_ilce.Items.Add("Çeşme");
-            }
-            if (cmbBox_il.Text == "Antalya")
-            {
-                cmbBox_ilce.Items.Add("Demre");
-                cmbBox_ilce.Items.Add("Manavgat");
-            }
-        }
-
-        private void cmbBox_gIL_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cmbBox_gOtelILce.Enabled = true;
-            cmbBox_gOtelILce.Items.Clear();
-            if (cmbBox_gIL.Text == "İzmir")
-            {
-                cmbBox_gOtelILce.Items.Add("Alaçatı");
-                cmbBox_gOtelILce.Items.Add("Çeşme");
-            }
-            if (cmbBox_gIL.Text == "Antalya")
-            {
-                cmbBox_gOtelILce.Items.Add("Demre");
-                cmbBox_gOtelILce.Items.Add("Manavgat");
-            }
-        }
     }
 }
+
+
+
+
+
+
