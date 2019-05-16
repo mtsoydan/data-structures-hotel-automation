@@ -142,7 +142,6 @@
             this.tbpListelePersonel = new System.Windows.Forms.TabPage();
             this.lstBox_personel = new System.Windows.Forms.ListBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.cmbBox_perListele = new System.Windows.Forms.ComboBox();
             this.tbpPuanlaPersonel = new System.Windows.Forms.TabPage();
             this.panel16 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -159,6 +158,7 @@
             this.cmbBox_perPuan = new System.Windows.Forms.ComboBox();
             this.label58 = new System.Windows.Forms.Label();
             this.tbpListeleOtel = new System.Windows.Forms.TabPage();
+            this.textListeleOtel = new System.Windows.Forms.TextBox();
             this.cmbBox_otelListe = new System.Windows.Forms.ComboBox();
             this.cmbBox_ililce = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -197,7 +197,10 @@
             this.txt_kullaniciAdi = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.textListeleOtel = new System.Windows.Forms.TextBox();
+            this.btn_departman = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cmbBox_departman = new System.Windows.Forms.ComboBox();
+            this.cmbBox_yildiz = new System.Windows.Forms.ComboBox();
             this.tbpDuzenle.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl3.SuspendLayout();
@@ -1408,9 +1411,11 @@
             // tbpListelePersonel
             // 
             this.tbpListelePersonel.BackColor = System.Drawing.Color.Azure;
+            this.tbpListelePersonel.Controls.Add(this.cmbBox_departman);
+            this.tbpListelePersonel.Controls.Add(this.button2);
+            this.tbpListelePersonel.Controls.Add(this.btn_departman);
             this.tbpListelePersonel.Controls.Add(this.lstBox_personel);
             this.tbpListelePersonel.Controls.Add(this.label45);
-            this.tbpListelePersonel.Controls.Add(this.cmbBox_perListele);
             this.tbpListelePersonel.Location = new System.Drawing.Point(4, 25);
             this.tbpListelePersonel.Name = "tbpListelePersonel";
             this.tbpListelePersonel.Padding = new System.Windows.Forms.Padding(3);
@@ -1432,20 +1437,11 @@
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label45.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.label45.Location = new System.Drawing.Point(23, 96);
+            this.label45.Location = new System.Drawing.Point(23, 105);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(206, 20);
             this.label45.TabIndex = 2;
             this.label45.Text = "Listeleme Şekli Seçiniz";
-            // 
-            // cmbBox_perListele
-            // 
-            this.cmbBox_perListele.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBox_perListele.FormattingEnabled = true;
-            this.cmbBox_perListele.Location = new System.Drawing.Point(27, 141);
-            this.cmbBox_perListele.Name = "cmbBox_perListele";
-            this.cmbBox_perListele.Size = new System.Drawing.Size(202, 24);
-            this.cmbBox_perListele.TabIndex = 1;
             // 
             // tbpPuanlaPersonel
             // 
@@ -1626,6 +1622,7 @@
             // 
             this.tbpListeleOtel.BackColor = System.Drawing.Color.Snow;
             this.tbpListeleOtel.Controls.Add(this.textListeleOtel);
+            this.tbpListeleOtel.Controls.Add(this.cmbBox_yildiz);
             this.tbpListeleOtel.Controls.Add(this.cmbBox_otelListe);
             this.tbpListeleOtel.Controls.Add(this.cmbBox_ililce);
             this.tbpListeleOtel.Controls.Add(this.label6);
@@ -1645,6 +1642,16 @@
             this.tbpListeleOtel.Text = "Otel Listele";
             this.tbpListeleOtel.Click += new System.EventHandler(this.tbpListeleOtel_Click);
             // 
+            // textListeleOtel
+            // 
+            this.textListeleOtel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textListeleOtel.Location = new System.Drawing.Point(433, 44);
+            this.textListeleOtel.Multiline = true;
+            this.textListeleOtel.Name = "textListeleOtel";
+            this.textListeleOtel.Size = new System.Drawing.Size(638, 549);
+            this.textListeleOtel.TabIndex = 10;
+            this.textListeleOtel.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // cmbBox_otelListe
             // 
             this.cmbBox_otelListe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1657,21 +1664,24 @@
             this.cmbBox_otelListe.Name = "cmbBox_otelListe";
             this.cmbBox_otelListe.Size = new System.Drawing.Size(202, 28);
             this.cmbBox_otelListe.TabIndex = 9;
+            this.cmbBox_otelListe.SelectedIndexChanged += new System.EventHandler(this.cmbBox_otelListe_SelectedIndexChanged);
             // 
             // cmbBox_ililce
             // 
             this.cmbBox_ililce.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbBox_ililce.ForeColor = System.Drawing.Color.SteelBlue;
             this.cmbBox_ililce.FormattingEnabled = true;
             this.cmbBox_ililce.Items.AddRange(new object[] {
             "Izmir-Cesme",
-            "Izmir-Alacati",
             "Antalya-Demre",
-            "Antalya-Manavgat"});
+            "Mersin-Anamur",
+            "Izmir-Alacati",
+            "Nevsehir-Kapadokya"});
             this.cmbBox_ililce.Location = new System.Drawing.Point(83, 148);
             this.cmbBox_ililce.Name = "cmbBox_ililce";
             this.cmbBox_ililce.Size = new System.Drawing.Size(202, 28);
             this.cmbBox_ililce.TabIndex = 9;
-            this.cmbBox_ililce.Text = "             İL-İLÇE";
+            this.cmbBox_ililce.Text = "           İL-İLÇE";
             this.cmbBox_ililce.SelectedIndexChanged += new System.EventHandler(this.cmbBox_ililce_SelectedIndexChanged);
             // 
             // label6
@@ -1679,7 +1689,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.label6.Location = new System.Drawing.Point(78, 530);
+            this.label6.Location = new System.Drawing.Point(74, 568);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(149, 25);
             this.label6.TabIndex = 8;
@@ -1689,7 +1699,7 @@
             // 
             this.lbl_eleman.AutoSize = true;
             this.lbl_eleman.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_eleman.Location = new System.Drawing.Point(245, 530);
+            this.lbl_eleman.Location = new System.Drawing.Point(241, 568);
             this.lbl_eleman.Name = "lbl_eleman";
             this.lbl_eleman.Size = new System.Drawing.Size(44, 25);
             this.lbl_eleman.TabIndex = 8;
@@ -1700,7 +1710,7 @@
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.label.Location = new System.Drawing.Point(78, 484);
+            this.label.Location = new System.Drawing.Point(74, 522);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(84, 25);
             this.label.TabIndex = 8;
@@ -1710,7 +1720,7 @@
             // 
             this.lbl_derinlik.AutoSize = true;
             this.lbl_derinlik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_derinlik.Location = new System.Drawing.Point(245, 484);
+            this.lbl_derinlik.Location = new System.Drawing.Point(241, 522);
             this.lbl_derinlik.Name = "lbl_derinlik";
             this.lbl_derinlik.Size = new System.Drawing.Size(44, 25);
             this.lbl_derinlik.TabIndex = 8;
@@ -1721,36 +1731,39 @@
             this.btn_intOrder.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_intOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_intOrder.ForeColor = System.Drawing.Color.White;
-            this.btn_intOrder.Location = new System.Drawing.Point(83, 305);
+            this.btn_intOrder.Location = new System.Drawing.Point(83, 373);
             this.btn_intOrder.Name = "btn_intOrder";
             this.btn_intOrder.Size = new System.Drawing.Size(202, 34);
             this.btn_intOrder.TabIndex = 7;
             this.btn_intOrder.Text = "InOrder";
             this.btn_intOrder.UseVisualStyleBackColor = false;
+            this.btn_intOrder.Click += new System.EventHandler(this.btn_intOrder_Click);
             // 
             // btn_postOrder
             // 
             this.btn_postOrder.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_postOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_postOrder.ForeColor = System.Drawing.Color.White;
-            this.btn_postOrder.Location = new System.Drawing.Point(83, 357);
+            this.btn_postOrder.Location = new System.Drawing.Point(83, 425);
             this.btn_postOrder.Name = "btn_postOrder";
             this.btn_postOrder.Size = new System.Drawing.Size(202, 34);
             this.btn_postOrder.TabIndex = 7;
             this.btn_postOrder.Text = "PostOrder";
             this.btn_postOrder.UseVisualStyleBackColor = false;
+            this.btn_postOrder.Click += new System.EventHandler(this.btn_postOrder_Click);
             // 
             // btn_preOrder
             // 
             this.btn_preOrder.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_preOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_preOrder.ForeColor = System.Drawing.Color.White;
-            this.btn_preOrder.Location = new System.Drawing.Point(83, 248);
+            this.btn_preOrder.Location = new System.Drawing.Point(83, 316);
             this.btn_preOrder.Name = "btn_preOrder";
             this.btn_preOrder.Size = new System.Drawing.Size(202, 34);
             this.btn_preOrder.TabIndex = 7;
             this.btn_preOrder.Text = "PreOrder";
             this.btn_preOrder.UseVisualStyleBackColor = false;
+            this.btn_preOrder.Click += new System.EventHandler(this.btn_preOrder_Click);
             // 
             // label55
             // 
@@ -2096,14 +2109,67 @@
             this.pictureBox14.TabIndex = 3;
             this.pictureBox14.TabStop = false;
             // 
-            // textListeleOtel
+            // btn_departman
             // 
-            this.textListeleOtel.Location = new System.Drawing.Point(433, 44);
-            this.textListeleOtel.Multiline = true;
-            this.textListeleOtel.Name = "textListeleOtel";
-            this.textListeleOtel.Size = new System.Drawing.Size(638, 549);
-            this.textListeleOtel.TabIndex = 10;
-            this.textListeleOtel.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.btn_departman.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btn_departman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_departman.ForeColor = System.Drawing.Color.White;
+            this.btn_departman.Location = new System.Drawing.Point(27, 404);
+            this.btn_departman.Name = "btn_departman";
+            this.btn_departman.Size = new System.Drawing.Size(202, 42);
+            this.btn_departman.TabIndex = 4;
+            this.btn_departman.Text = "Departman";
+            this.btn_departman.UseVisualStyleBackColor = false;
+            this.btn_departman.Click += new System.EventHandler(this.btn_departman_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(27, 213);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(202, 32);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Puan";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // cmbBox_departman
+            // 
+            this.cmbBox_departman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbBox_departman.ForeColor = System.Drawing.Color.MediumAquamarine;
+            this.cmbBox_departman.FormattingEnabled = true;
+            this.cmbBox_departman.Items.AddRange(new object[] {
+            "Eglence",
+            "A",
+            "D",
+            "S",
+            "K",
+            "Z",
+            "F"});
+            this.cmbBox_departman.Location = new System.Drawing.Point(27, 167);
+            this.cmbBox_departman.Name = "cmbBox_departman";
+            this.cmbBox_departman.Size = new System.Drawing.Size(202, 28);
+            this.cmbBox_departman.TabIndex = 5;
+            this.cmbBox_departman.Text = "       Departman";
+            // 
+            // cmbBox_yildiz
+            // 
+            this.cmbBox_yildiz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbBox_yildiz.ForeColor = System.Drawing.Color.SteelBlue;
+            this.cmbBox_yildiz.FormattingEnabled = true;
+            this.cmbBox_yildiz.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.cmbBox_yildiz.Location = new System.Drawing.Point(83, 244);
+            this.cmbBox_yildiz.Name = "cmbBox_yildiz";
+            this.cmbBox_yildiz.Size = new System.Drawing.Size(202, 28);
+            this.cmbBox_yildiz.TabIndex = 9;
+            this.cmbBox_yildiz.Text = "           YILDIZ";
+            this.cmbBox_yildiz.SelectedIndexChanged += new System.EventHandler(this.cmbBox_yildiz_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -2292,7 +2358,6 @@
         private System.Windows.Forms.Button btn_perKaydet;
         private System.Windows.Forms.ListBox lstBox_personel;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.ComboBox cmbBox_perListele;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -2341,6 +2406,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbBox_gOtelPuan;
         private System.Windows.Forms.TextBox textListeleOtel;
+        private System.Windows.Forms.ComboBox cmbBox_departman;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_departman;
+        private System.Windows.Forms.ComboBox cmbBox_yildiz;
     }
 }
 

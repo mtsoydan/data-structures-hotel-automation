@@ -9,11 +9,13 @@ namespace OtelOtomasyonu
  public   class HashEntry
     {
         public string anahtar { get; set; }
+        public OtelBilgi Deger { get; set; } 
         public Heap h;
 
-        public HashEntry(string anahtar)
+        public HashEntry(string anahtar,OtelBilgi deger)
         {
             this.anahtar = anahtar;
+            this.Deger = deger;
         }
     }
 }

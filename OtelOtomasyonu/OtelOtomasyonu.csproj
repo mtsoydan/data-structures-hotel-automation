@@ -36,6 +36,7 @@
     <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -59,11 +60,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="HashEntry.cs" />
+    <Compile Include="HashMap.cs" />
     <Compile Include="HashMapChain.cs" />
     <Compile Include="Heap.cs" />
     <Compile Include="HeapDugumu.cs" />
     <Compile Include="IkiliAramaAgaci.cs" />
     <Compile Include="IkiliAramaAgaciDugumu.cs" />
+    <Compile Include="linkedHashEntry.cs" />
     <Compile Include="LinkedListOtelYorum.cs" />
     <Compile Include="LinkedListPersonelBİlgi.cs" />
     <Compile Include="ListADT.cs" />

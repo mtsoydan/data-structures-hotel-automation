@@ -6,35 +6,36 @@ using System.Threading.Tasks;
 
 namespace OtelOtomasyonu
 {
-   public class HashMapChain
+
+    public class HashMapChain
     {
-        public HashEntry[] table;
-        Heap h;
+        int tabloBoyutu = 10;
+
+        linkedHashEntry[] tablo;
+
 
         public HashMapChain()
         {
-            table = new HashEntry[10];
-            for (int i = 0; i < 10; i++)
-            {
-                table[i] = null;
-            }
+            tablo= new linkedHashEntry[tabloBoyutu];
+            for (int i = 0; i < tabloBoyutu; i++)
+                tablo[i] = null;
         }
         public void Add(string key, OtelBilgi value)
         {
             int hash = hashFonksiyonu(key, 10);
-            if (table[hash] == null)
-            {
-                table[hash] = new HashEntry(key);
-                table[hash].h = new Heap(100);
-                table[hash].h.InsertPuan(value);
-            }
+            if (tablo[hash] == null)
+                tablo[hash] = new linkedHashEntry(key, value);
             else
             {
-                table[hash].h.InsertPuan(value);
+                linkedHashEntry entry = tablo[hash];
+                while (entry.Next != null && entry.Anahtar !=key )
+                    entry = entry.Next;
+                if (entry.Anahtar == key)
+                    entry.Deger = value;
+                else
+                    entry.Next = new linkedHashEntry(key, value);
             }
-
         }
-
         public int hashFonksiyonu(string key, int tabloBoyutu)
         {
             int sonuc = 0;
@@ -48,13 +49,26 @@ namespace OtelOtomasyonu
             sonuc = hashDeger % tabloBoyutu; //tablo boyutuna göre mo alma
             return sonuc;
         }
-        public void OtelBilgiGuncelle(Heap h, OtelBilgi otel)
+        public OtelBilgi GetPersonel(string key)
         {
-            for (int i = 0; i < h.currentSize; i++)
+            int hash = hashFonksiyonu(key,10);
+            if (tablo[hash] == null)
+                return null;
+            else
             {
-                if (h.heapArrayPuan[i].otel.OtelID == otel.OtelID)
-                    h.heapArrayPuan[i].otel = otel;
+                linkedHashEntry entry = tablo[hash];
+                while (entry != null && entry.Anahtar != key)
+                    entry = entry.Next;
+                if (entry == null)
+                    return null;
+                else
+                    return (OtelBilgi)entry.Deger;
             }
         }
+
+
     }
+
+
 }
+

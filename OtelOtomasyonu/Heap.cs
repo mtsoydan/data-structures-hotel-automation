@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OtelOtomasyonu
 {
-   public class Heap
+    public class Heap
     {
         //public HeapDugumu[] heapArrayYıldız;
         public HeapDugumu[] heapArrayPuan;
@@ -42,7 +42,7 @@ namespace OtelOtomasyonu
         //    throw new NotImplementedException();
         //}
 
-        public bool InsertPuan(OtelBilgi o)
+        public bool InsertOtel(OtelBilgi o)
         {
             if (currentSize == maxSize)
                 return false;
@@ -70,7 +70,7 @@ namespace OtelOtomasyonu
         {
             HeapDugumu root = heapArrayPuan[0];
             heapArrayPuan[0] = heapArrayPuan[--currentSize];
-            MoveToDown(0);
+            MoveToDownPuan(0);
             return root;
         }
 
@@ -100,44 +100,62 @@ namespace OtelOtomasyonu
             heapArrayPuan[index] = top;
         }
 
-        public string DisplayHeap()
+        public string PuanaGoreListele()
         {
             string temp = "";
 
-            for (int m = 0; m < currentSize; m++)
+            for (int i = 0; i < currentSize; i++)
             {
-                if (heapArrayPuan[m] != null)
-                    temp += "Adı-Soyadı:" + (heapArrayPuan[m].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[m].otel.Il_Ilce +
-                        "Adresi:" + heapArrayPuan[m].otel.Adres + " " + "E-posta:" + heapArrayPuan[m].otel.EPosta + " "+
-                         "Telefon Numarası:" + heapArrayPuan[m].otel.Telefon + " " + "Yıldız Sayısı:"
-                        + heapArrayPuan[m].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[m].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[m].otel.OdaTipi +" "+
-                        "Otel Puanı:" + heapArrayPuan[m].otel.OtelPuani) + Environment.NewLine;
-                //"Mezun Bilgileri--> " + heapArray[m].ogr.MezunBilgiListesi.DisplayElements()) + Environment.NewLine + Environment.NewLine;
+                if (heapArrayPuan[i] != null)
+                {
+                    temp += "Adı-Soyadı:" + (heapArrayPuan[i].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[i].otel.Il_Ilce +
+                        "Adresi:" + heapArrayPuan[i].otel.Adres + " " + "E-posta:" + heapArrayPuan[i].otel.EPosta + " " +
+                         "Telefon Numarası:" + heapArrayPuan[i].otel.Telefon + " " + "Yıldız Sayısı:"
+                        + heapArrayPuan[i].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[i].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[i].otel.OdaTipi + " " +
+                        "Otel Puanı:" + heapArrayPuan[i].otel.OtelPuani) + Environment.NewLine;
+                }
                 else
                     temp += ("-- ");
             }
             return temp;
 
-
         }
-
-        public string PuanaGoreListele(int puan)
+        public string YıldızaGoreAra(int yildiz)
         {
             string temp = "";
-
-            for (int m = 0; m < currentSize; m++)
+            for (int i = 0; i < currentSize; i++)
             {
-                if (heapArrayPuan[m] != null && heapArrayPuan[m].otel.OtelPuani == puan )
-                    temp += "Adı-Soyadı:" + (heapArrayPuan[m].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[m].otel.Il_Ilce+
-                        "Adresi:" + heapArrayPuan[m].otel.Adres + " " + "E-posta:" + heapArrayPuan[m].otel.EPosta + " " +
-                         "Telefon Numarası:" + heapArrayPuan[m].otel.Telefon + " " + "Yıldız Sayısı:"
-                        + heapArrayPuan[m].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[m].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[m].otel.OdaTipi + " " +
-                        "Otel Puanı:" + heapArrayPuan[m].otel.OtelPuani) + Environment.NewLine;
+                if (heapArrayPuan[i] != null && heapArrayPuan[i].otel.OtelPuani == yildiz)
+                {
+                    temp += "Adı-Soyadı:" + (heapArrayPuan[i].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[i].otel.Il_Ilce +
+                    "Adresi:" + heapArrayPuan[i].otel.Adres + " " + "E-posta:" + heapArrayPuan[i].otel.EPosta + " "+
+                    "Telefon Numarası:" + heapArrayPuan[i].otel.Telefon + " " + "Yıldız Sayısı:"
+                     + heapArrayPuan[i].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[i].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[i].otel.OdaTipi + " " +
+                    "Otel Puanı:" + heapArrayPuan[i].otel.OtelPuani) + Environment.NewLine;
 
+                }
             }
 
             return temp;
         }
+
+        //public string PuanaGoreListele()
+        //{
+        //    string temp = "";
+
+        //    for (int i = 0; i < currentSize; i++)
+        //    {
+        //       // if (heapArrayPuan[m] != null && heapArrayPuan[m].otel.OtelPuani == puan )
+        //            temp += "Adı-Soyadı:" + (heapArrayPuan[i].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[i].otel.Il_Ilce+
+        //                "Adresi:" + heapArrayPuan[i].otel.Adres + " " + "E-posta:" + heapArrayPuan[i].otel.EPosta + " " +
+        //                 "Telefon Numarası:" + heapArrayPuan[i].otel.Telefon + " " + "Yıldız Sayısı:"
+        //                + heapArrayPuan[i].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[i].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[i].otel.OdaTipi + " " +
+        //                "Otel Puanı:" + heapArrayPuan[i].otel.OtelPuani) + Environment.NewLine;
+
+        //    }
+
+        //    return temp;
+        //}
 
         public HeapDugumu ElemanSil(OtelBilgi otel)
         {

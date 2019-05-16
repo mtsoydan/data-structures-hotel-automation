@@ -20,14 +20,15 @@ namespace OtelOtomasyonu
             txt_sifre.PasswordChar = '*';
 
         }
-        IkiliAramaAgaciDugumu aramaDugum = new IkiliAramaAgaciDugumu();
+        IkiliAramaAgaciDugumu aramaDugum;
         IkiliAramaAgaci aramaAgaci = new IkiliAramaAgaci();
        // LinkedListPersonelBİlgi linkedPer = new LinkedListPersonelBİlgi();
        //  LinkedListOtelYorum linkedYorum = new LinkedListOtelYorum();
-        HashMapChain hashMap = new HashMapChain();
-        OtelBilgi OtelBilgi;
+        HashMap hashMap = new HashMap();
+        HashMapChain mapChain = new HashMapChain();
+        OtelBilgi otel;
 
-        int otelId=5;
+        int otelId=9;
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,16 +36,20 @@ namespace OtelOtomasyonu
             
             cmbBox_ililce.Enabled = false;
             cmbBox_otelListe.Enabled = false;
+            cmbBox_yildiz.Enabled = false;
             XmlOtelListele();
+            aramaAgaci.DerinlikBul();
+            lbl_derinlik.Text = aramaAgaci.Yukseklik.ToString();
+            lbl_eleman.Text = aramaAgaci.DugumSayisi().ToString();
         }
         public void XmlOtelListele()
         {
-            OtelBilgi otel = new OtelBilgi();
+            aramaAgaci = new IkiliAramaAgaci();
             XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement otelXml in rootElement.Elements())
             {
-
+                otel = new OtelBilgi();
                 //xml den çekme
                 otel.OtelID = Convert.ToInt32(otelXml.Attribute("id").Value);
                 otel.OtelAdi = otelXml.Element("OtelAdi").Value;
@@ -56,10 +61,10 @@ namespace OtelOtomasyonu
                 otel.OdaSayisi = Convert.ToInt32(otelXml.Element("OdaSayisi").Value);
                 otel.OdaTipi = otelXml.Element("OdaTipi").Value;
                 otel.OtelPuani = Convert.ToInt32(otelXml.Element("OtelPuani").Value);
-               
+
                 //arama ağacına ve hash e ekleme
-                hashMap.Add(otel.Il_Ilce, otel);
                 aramaAgaci.OtelEkle(otel);
+                hashMap.Add(otel.Il_Ilce, otel);
                 
             }
         }
@@ -84,7 +89,7 @@ namespace OtelOtomasyonu
 
                  aramaAgaci.OtelIDAra(Convert.ToInt32(perXml.Element("OtelId").Value));
                  ///
-                 OtelBilgi.PersonelBilgiList.InsertLast(per);
+                 otel.PersonelBilgiList.InsertLast(per);
 
             }
         }
@@ -93,12 +98,13 @@ namespace OtelOtomasyonu
             if (cmbBox_otelListele.Text == "İl-İlçe")
             {
                 cmbBox_ililce.Enabled = true;
+                textListeleOtel.Text = "";
             }
             else
             {
                 //listeleme tüm oteller
-                //aramaAgaci.PostOrder();
-                //textListeleOtel.Text = aramaAgaci.DugumleriYazdir();
+                aramaAgaci.PostOrder();
+                textListeleOtel.Text = aramaAgaci.DugumleriYazdir();
             }
         }
 
@@ -157,6 +163,10 @@ namespace OtelOtomasyonu
         private void cmbBox_ililce_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbBox_otelListe.Enabled = true;
+            string anahtar = cmbBox_ililce.SelectedItem.ToString();
+            //int hIndis = hashMap.hashFonksiyonu(anahtar, 10);
+            //textListeleOtel.Text = hashMap.tablo[hIndis].h.PuanaGoreListele();
+            textListeleOtel.Text = hashMap.GetOtelBilgiPuan(anahtar);
         }
         
         private void btn_otelGuncelle_Click(object sender, EventArgs e)
@@ -178,7 +188,7 @@ namespace OtelOtomasyonu
                 //agac ve hash içinde güncelleme
             aramaAgaci.OtelBilgiGuncelle(otel);
             int hIndis = hashMap.hashFonksiyonu(otel.Il_Ilce, 10);
-            hashMap.OtelBilgiGuncelle(hashMap.table[hIndis].h, otel);
+            hashMap.OtelBilgiGuncelle(hashMap.tablo[hIndis].h, otel);
             MessageBox.Show("Kayıt Başarılı Bir Şekilde Güncellendi");
 
         }
@@ -192,7 +202,7 @@ namespace OtelOtomasyonu
             aramaAgaci.OtelSil(otel.OtelID);
             string anahtar = aramaDugum.veri.Il_Ilce;
             int hIndis = hashMap.hashFonksiyonu(anahtar, 3);
-            hashMap.table[hIndis].h.ElemanSil(aramaDugum.veri);
+            hashMap.tablo[hIndis].h.ElemanSil(aramaDugum.veri);
             MessageBox.Show("Kayıt Başarılı Bir Şekilde Silindi");
 
         }
@@ -205,6 +215,49 @@ namespace OtelOtomasyonu
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_departman_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_preOrder_Click(object sender, EventArgs e)
+        {
+            aramaAgaci.PreOrder();
+            textListeleOtel.Text = aramaAgaci.DugumleriYazdir();
+        }
+
+        private void btn_intOrder_Click(object sender, EventArgs e)
+        {
+            aramaAgaci.InOrder();
+            textListeleOtel.Text = aramaAgaci.DugumleriYazdir();
+        }
+
+        private void btn_postOrder_Click(object sender, EventArgs e)
+        {
+            aramaAgaci.PostOrder();
+            textListeleOtel.Text = aramaAgaci.DugumleriYazdir();
+        }
+
+        private void cmbBox_otelListe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbBox_otelListe.Text=="Puan")
+            {
+                string anahtar = cmbBox_ililce.SelectedItem.ToString();
+                textListeleOtel.Text = hashMap.GetOtelBilgiPuan(anahtar);
+            }
+            else
+            {
+                cmbBox_yildiz.Enabled = true;
+            }
+        }
+
+        private void cmbBox_yildiz_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string anahtar = cmbBox_ililce.SelectedItem.ToString();
+            int yildiz= int.Parse(cmbBox_yildiz.SelectedItem.ToString());
+            textListeleOtel.Text = hashMap.GetOtelBilgiYildiz(anahtar, yildiz);
         }
     }
 }
