@@ -12,6 +12,7 @@ namespace OtelOtomasyonu
         int tabloBoyutu = 10;
 
         linkedHashEntry[] tablo;
+        public Heap h;
 
 
         public HashMapChain()
@@ -24,16 +25,23 @@ namespace OtelOtomasyonu
         {
             int hash = hashFonksiyonu(key, 10);
             if (tablo[hash] == null)
+            {
                 tablo[hash] = new linkedHashEntry(key, value);
+                tablo[hash].h = new Heap(100);
+                tablo[hash].h.InsertOtel(value);
+            }
             else
             {
                 linkedHashEntry entry = tablo[hash];
-                while (entry.Next != null && entry.Anahtar !=key )
+                while (entry.Next != null && entry.Anahtar == key)
                     entry = entry.Next;
-                if (entry.Anahtar == key)
-                    entry.Deger = value;
-                else
-                    entry.Next = new linkedHashEntry(key, value);
+                //tablo[hash] = new HashEntry(key, value);
+                tablo[hash].h = new Heap(100);
+                tablo[hash].h.InsertOtel(value);
+                //if (entry.Anahtar == key)
+                //    entry.Deger = value;
+                //else
+                entry.Next = new linkedHashEntry(key, value);
             }
         }
         public int hashFonksiyonu(string key, int tabloBoyutu)
@@ -49,7 +57,7 @@ namespace OtelOtomasyonu
             sonuc = hashDeger % tabloBoyutu; //tablo boyutuna göre mo alma
             return sonuc;
         }
-        public OtelBilgi GetPersonel(string key)
+        public string GetPersonel(string key)
         {
             int hash = hashFonksiyonu(key,10);
             if (tablo[hash] == null)
@@ -57,12 +65,12 @@ namespace OtelOtomasyonu
             else
             {
                 linkedHashEntry entry = tablo[hash];
-                while (entry != null && entry.Anahtar != key)
+                while (entry != null && entry.Anahtar == key)
                     entry = entry.Next;
-                if (entry == null)
-                    return null;
-                else
-                    return (OtelBilgi)entry.Deger;
+                //if (entry == null)
+                //    return null;
+                //else
+                    return entry.Deger.ToString();
             }
         }
 

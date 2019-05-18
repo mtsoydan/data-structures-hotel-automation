@@ -41,6 +41,7 @@ namespace OtelOtomasyonu
             aramaAgaci.DerinlikBul();
             lbl_derinlik.Text = aramaAgaci.Yukseklik.ToString();
             lbl_eleman.Text = aramaAgaci.DugumSayisi().ToString();
+        
         }
         public void XmlOtelListele()
         {

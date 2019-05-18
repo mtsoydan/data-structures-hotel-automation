@@ -9,6 +9,7 @@ namespace OtelOtomasyonu
 
     public class linkedHashEntry
     {
+        public Heap h;
         private string anahtar;
 
         private object deger;
