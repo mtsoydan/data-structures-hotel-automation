@@ -247,7 +247,23 @@ namespace OtelOtomasyonu
             else
                 return (OtelBilgiGuncelle(dugum.sag, otel));
         }
+        public IkiliAramaAgaciDugumu OtelPersonelEkle(OtelBilgi otel)
+        {
+            return OtelPersonelEkle(kok, otel);
+        }
+        private IkiliAramaAgaciDugumu OtelPersonelEkle(IkiliAramaAgaciDugumu dugum, OtelBilgi otel)
+        {
 
+            if ((int)dugum.veri.OtelID == otel.OtelID)
+            {
+                dugum.veri.PersonelBilgiList.InsertLast(otel.personelBilgi);
+                return dugum;
+            }
+            else if ((int)dugum.veri.OtelID > otel.OtelID)
+                return (OtelBilgiGuncelle(dugum.sol, otel));
+            else
+                return (OtelBilgiGuncelle(dugum.sag, otel));
+        }
 
         public void PreOrderAdvanced(OtelBilgi otel)
         {

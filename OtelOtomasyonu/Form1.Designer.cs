@@ -1374,6 +1374,7 @@
             this.btn_perKaydet.TabIndex = 10;
             this.btn_perKaydet.Text = "KAYDET";
             this.btn_perKaydet.UseVisualStyleBackColor = false;
+            this.btn_perKaydet.Click += new System.EventHandler(this.btn_perKaydet_Click);
             // 
             // tbpAnaSayfa
             // 
