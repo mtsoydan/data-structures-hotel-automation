@@ -140,6 +140,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabCtrl2 = new System.Windows.Forms.TabControl();
             this.tbpListelePersonel = new System.Windows.Forms.TabPage();
+            this.cmbBox_departman = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btn_departman = new System.Windows.Forms.Button();
             this.lstBox_personel = new System.Windows.Forms.ListBox();
             this.label45 = new System.Windows.Forms.Label();
             this.tbpPuanlaPersonel = new System.Windows.Forms.TabPage();
@@ -159,6 +162,7 @@
             this.label58 = new System.Windows.Forms.Label();
             this.tbpListeleOtel = new System.Windows.Forms.TabPage();
             this.textListeleOtel = new System.Windows.Forms.TextBox();
+            this.cmbBox_yildiz = new System.Windows.Forms.ComboBox();
             this.cmbBox_otelListe = new System.Windows.Forms.ComboBox();
             this.cmbBox_ililce = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -197,10 +201,6 @@
             this.txt_kullaniciAdi = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.btn_departman = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.cmbBox_departman = new System.Windows.Forms.ComboBox();
-            this.cmbBox_yildiz = new System.Windows.Forms.ComboBox();
             this.tbpDuzenle.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl3.SuspendLayout();
@@ -1423,6 +1423,52 @@
             this.tbpListelePersonel.TabIndex = 0;
             this.tbpListelePersonel.Text = "Personel Listele";
             // 
+            // cmbBox_departman
+            // 
+            this.cmbBox_departman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbBox_departman.ForeColor = System.Drawing.Color.MediumAquamarine;
+            this.cmbBox_departman.FormattingEnabled = true;
+            this.cmbBox_departman.Items.AddRange(new object[] {
+            "Eglence",
+            "A",
+            "D",
+            "S",
+            "K",
+            "Z",
+            "F"});
+            this.cmbBox_departman.Location = new System.Drawing.Point(27, 167);
+            this.cmbBox_departman.Name = "cmbBox_departman";
+            this.cmbBox_departman.Size = new System.Drawing.Size(202, 28);
+            this.cmbBox_departman.TabIndex = 5;
+            this.cmbBox_departman.Text = "       Departman";
+            this.cmbBox_departman.SelectedIndexChanged += new System.EventHandler(this.cmbBox_departman_SelectedIndexChanged);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(27, 213);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(202, 32);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Puan";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btn_departman
+            // 
+            this.btn_departman.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btn_departman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_departman.ForeColor = System.Drawing.Color.White;
+            this.btn_departman.Location = new System.Drawing.Point(27, 404);
+            this.btn_departman.Name = "btn_departman";
+            this.btn_departman.Size = new System.Drawing.Size(202, 42);
+            this.btn_departman.TabIndex = 4;
+            this.btn_departman.Text = "Departman";
+            this.btn_departman.UseVisualStyleBackColor = false;
+            this.btn_departman.Click += new System.EventHandler(this.btn_departman_Click);
+            // 
             // lstBox_personel
             // 
             this.lstBox_personel.FormattingEnabled = true;
@@ -1648,9 +1694,28 @@
             this.textListeleOtel.Location = new System.Drawing.Point(433, 44);
             this.textListeleOtel.Multiline = true;
             this.textListeleOtel.Name = "textListeleOtel";
+            this.textListeleOtel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textListeleOtel.Size = new System.Drawing.Size(638, 549);
             this.textListeleOtel.TabIndex = 10;
             this.textListeleOtel.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // cmbBox_yildiz
+            // 
+            this.cmbBox_yildiz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbBox_yildiz.ForeColor = System.Drawing.Color.SteelBlue;
+            this.cmbBox_yildiz.FormattingEnabled = true;
+            this.cmbBox_yildiz.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.cmbBox_yildiz.Location = new System.Drawing.Point(83, 244);
+            this.cmbBox_yildiz.Name = "cmbBox_yildiz";
+            this.cmbBox_yildiz.Size = new System.Drawing.Size(202, 28);
+            this.cmbBox_yildiz.TabIndex = 9;
+            this.cmbBox_yildiz.Text = "           YILDIZ";
+            this.cmbBox_yildiz.SelectedIndexChanged += new System.EventHandler(this.cmbBox_yildiz_SelectedIndexChanged);
             // 
             // cmbBox_otelListe
             // 
@@ -2108,68 +2173,6 @@
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox14.TabIndex = 3;
             this.pictureBox14.TabStop = false;
-            // 
-            // btn_departman
-            // 
-            this.btn_departman.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.btn_departman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_departman.ForeColor = System.Drawing.Color.White;
-            this.btn_departman.Location = new System.Drawing.Point(27, 404);
-            this.btn_departman.Name = "btn_departman";
-            this.btn_departman.Size = new System.Drawing.Size(202, 42);
-            this.btn_departman.TabIndex = 4;
-            this.btn_departman.Text = "Departman";
-            this.btn_departman.UseVisualStyleBackColor = false;
-            this.btn_departman.Click += new System.EventHandler(this.btn_departman_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(27, 213);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 32);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Puan";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // cmbBox_departman
-            // 
-            this.cmbBox_departman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbBox_departman.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.cmbBox_departman.FormattingEnabled = true;
-            this.cmbBox_departman.Items.AddRange(new object[] {
-            "Eglence",
-            "A",
-            "D",
-            "S",
-            "K",
-            "Z",
-            "F"});
-            this.cmbBox_departman.Location = new System.Drawing.Point(27, 167);
-            this.cmbBox_departman.Name = "cmbBox_departman";
-            this.cmbBox_departman.Size = new System.Drawing.Size(202, 28);
-            this.cmbBox_departman.TabIndex = 5;
-            this.cmbBox_departman.Text = "       Departman";
-            // 
-            // cmbBox_yildiz
-            // 
-            this.cmbBox_yildiz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbBox_yildiz.ForeColor = System.Drawing.Color.SteelBlue;
-            this.cmbBox_yildiz.FormattingEnabled = true;
-            this.cmbBox_yildiz.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.cmbBox_yildiz.Location = new System.Drawing.Point(83, 244);
-            this.cmbBox_yildiz.Name = "cmbBox_yildiz";
-            this.cmbBox_yildiz.Size = new System.Drawing.Size(202, 28);
-            this.cmbBox_yildiz.TabIndex = 9;
-            this.cmbBox_yildiz.Text = "           YILDIZ";
-            this.cmbBox_yildiz.SelectedIndexChanged += new System.EventHandler(this.cmbBox_yildiz_SelectedIndexChanged);
             // 
             // Form1
             // 

@@ -27,8 +27,10 @@ namespace OtelOtomasyonu
         HashMap hashMap = new HashMap();
         HashMapChain mapChain = new HashMapChain();
         OtelBilgi otel;
+        PersonelBilgi per;
 
-        int otelId=9;
+
+        int otelId =9;
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace OtelOtomasyonu
         public void XmlOtelListele()
         {
             aramaAgaci = new IkiliAramaAgaci();
-            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement otelXml in rootElement.Elements())
             {
@@ -62,21 +64,64 @@ namespace OtelOtomasyonu
                 otel.OdaSayisi = Convert.ToInt32(otelXml.Element("OdaSayisi").Value);
                 otel.OdaTipi = otelXml.Element("OdaTipi").Value;
                 otel.OtelPuani = Convert.ToInt32(otelXml.Element("OtelPuani").Value);
-
+                //otel.PersonelBilgiList.InsertLast(XmlPersonelListele(otel.OtelID));
                 //arama ağacına ve hash e ekleme
+                //otel.PersonelBilgiList.InsertLast(XmlPersonelListele(otel.OtelID,otel));
+                XmlPersonelListele(otel.OtelID, otel);//Şu andaki otelin otel ID si yollanır
+
                 aramaAgaci.OtelEkle(otel);
                 hashMap.Add(otel.Il_Ilce, otel);
-                
+
+
             }
         }
+        public void XmlPersonelListele(int OtelID,OtelBilgi _o)
+        {
+            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
+            XElement rootElement = xDoc.Root;
+            foreach (XElement perXml in rootElement.Elements())
+            {
+                if (int.Parse(perXml.Element("OtelId").Value) == OtelID)
+                {
+                    per = new PersonelBilgi();
+                    per.TC = Convert.ToInt32(perXml.Attribute("id").Value);
+                    per.Ad = perXml.Element("Ad").Value;
+                    per.Soyad = perXml.Element("Soyad").Value;
+                    per.Adres = perXml.Element("Adres").Value;
+                    per.Telefon = perXml.Element("Telefon").Value;
+                    per.EPosta = perXml.Element("EPosta").Value;
+                    per.Departman = perXml.Element("Departman").Value;
+                    per.Pozisyon = perXml.Element("Pozisyon").Value;
+                    per.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
+                    _o.PersonelBilgiList.InsertLast(per);//otelin içine eleman kaydedilir
+                   // return _o;
+                }
+               
+
+                //xml den çekme
+
+
+                // aramaAgaci.OtelIDAra(Convert.ToInt32(perXml.Element("OtelId").Value));
+                ///
+
+                //arama agacına ekleyelim
+                //otel.PersonelBilgiList.InsertLast(per);
+
+            }
+          //  return _o;
+        }
+
+
+
 
         public void XmlPersonelListele()
         {
             PersonelBilgi per = new PersonelBilgi();
-            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement perXml in rootElement.Elements())
             {
+               
                 //xml den çekme
                 per.TC = Convert.ToInt32(perXml.Attribute("id").Value);
                 per.Ad = perXml.Element("Ad").Value;
@@ -90,6 +135,8 @@ namespace OtelOtomasyonu
 
                  aramaAgaci.OtelIDAra(Convert.ToInt32(perXml.Element("OtelId").Value));
                  ///
+
+                //arama agacına ekleyelim
                  otel.PersonelBilgiList.InsertLast(per);
 
             }
@@ -259,6 +306,17 @@ namespace OtelOtomasyonu
             string anahtar = cmbBox_ililce.SelectedItem.ToString();
             int yildiz= int.Parse(cmbBox_yildiz.SelectedItem.ToString());
             textListeleOtel.Text = hashMap.GetOtelBilgiYildiz(anahtar, yildiz);
+        }
+
+        private void cmbBox_departman_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            aramaAgaci.PostOrder();
+           //lstBox_personel.Items.Add(aramaAgaci)
         }
     }
 }

@@ -24,7 +24,7 @@
     <PersonelPuani>6</PersonelPuani>
   </Personel>
   <Personel id='3'>
-    <OtelId>3</OtelId>
+    <OtelId>2</OtelId>
     <Ad>Edis</Ad>
     <Soyad>Gorgulu</Soyad>
     <Telefon>0557775477</Telefon>
@@ -57,7 +57,7 @@
     <PersonelPuani>3</PersonelPuani>
   </Personel>
   <Personel id='6'>
-    <OtelId>4</OtelId>
+    <OtelId>3</OtelId>
     <Ad>Asuman</Ad>
     <Soyad>Zencir</Soyad>
     <Telefon>0524595477</Telefon>
@@ -101,7 +101,7 @@
     <PersonelPuani>4</PersonelPuani>
   </Personel>
   <Personel id='10'>
-    <OtelId>2</OtelId>
+    <OtelId>6</OtelId>
     <Ad>Azize</Ad>
     <Soyad>Kaya</Soyad>
     <Telefon>0559995477</Telefon>

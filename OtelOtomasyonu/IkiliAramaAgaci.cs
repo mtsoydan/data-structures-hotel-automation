@@ -61,8 +61,12 @@ namespace OtelOtomasyonu
             dugumler += "Adı: " + dugum.veri.OtelAdi + " " + "Il-Ilçe: " + dugum.veri.Il_Ilce + " " + "Adres: " + dugum.veri.Adres + " " +
             "Telefon: " + dugum.veri.Telefon + " " + "EPosta: " + dugum.veri.EPosta + " " + "Yıldız Sayısı: " + dugum.veri.YildizSayisi + " "+
             "Oda Sayısı: " + dugum.veri.OdaSayisi + " " + "Oda Tipi: " + dugum.veri.OdaTipi + " " + "Puan: " + dugum.veri.OtelPuani +
-            Environment.NewLine + "Otel Yorumları--> " + dugum.veri.OtelYorumList.DisplayElements() + Environment.NewLine+ Environment.NewLine;
+            Environment.NewLine + "Otel Yorumları--> " + dugum.veri.OtelYorumList.DisplayElements() + Environment.NewLine+ Environment.NewLine+
+            "Personel Bilgileri--> " + dugum.veri.PersonelBilgiList.DisplayElements() + Environment.NewLine + Environment.NewLine;
         }
+        
+
+
         public void InOrder()
         {
             dugumler = "";
@@ -280,3 +284,4 @@ namespace OtelOtomasyonu
         }
     }
 }
+//Otel ID si 1 olan otellerin personellerini listelemek

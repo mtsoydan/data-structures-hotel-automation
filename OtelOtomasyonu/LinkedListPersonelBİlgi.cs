@@ -17,7 +17,8 @@ namespace OtelOtomasyonu
             {
                 //todo : alttaki değişken değerlerini aktar
                 Personel_Bilgi = (PersonelBilgi)item.Data;
-              //  temp += "Personel TC " + Personel_Bilgi.TC + " "+ "Personel Adı" +Personel_Bilgi.Ad + Personel_Bilgi.Soyad +"Telefon" +Personel_Bilgi.Telefon +"Adres "+ Personel_Bilgi.Adres + " Eposta " + Personel_Bilgi.EPosta+ "departman   
+                temp += "Personel TC " + Personel_Bilgi.TC + " " + "Personel Adı" + Personel_Bilgi.Ad + Personel_Bilgi.Soyad + "Telefon" + Personel_Bilgi.Telefon + "Adres " + Personel_Bilgi.Adres + " Eposta " + Personel_Bilgi.EPosta+ Environment.NewLine;
+                item = item.Next;
             }
 
             return temp;
