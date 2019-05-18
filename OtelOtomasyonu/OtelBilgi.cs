@@ -19,11 +19,16 @@ namespace OtelOtomasyonu
         public string OdaTipi { get; set; }
         public int OtelPuani { get; set; }
 
+        public OtelYorum otelYorum { get; set; }
+        public PersonelBilgi personelBilgi { get; set; }
+
         public LinkedListOtelYorum OtelYorumList { get; set; }
         public LinkedListPersonelBİlgi PersonelBilgiList { get; set; }
         
         public OtelBilgi()
         {
+            otelYorum = new OtelYorum();
+            personelBilgi = new PersonelBilgi();
             OtelYorumList = new LinkedListOtelYorum();
             PersonelBilgiList = new LinkedListPersonelBİlgi();
 

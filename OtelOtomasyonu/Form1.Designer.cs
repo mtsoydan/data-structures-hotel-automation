@@ -1965,12 +1965,13 @@
             this.btn_yorumYap.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_yorumYap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_yorumYap.ForeColor = System.Drawing.Color.White;
-            this.btn_yorumYap.Location = new System.Drawing.Point(555, 265);
+            this.btn_yorumYap.Location = new System.Drawing.Point(564, 278);
             this.btn_yorumYap.Name = "btn_yorumYap";
             this.btn_yorumYap.Size = new System.Drawing.Size(201, 34);
             this.btn_yorumYap.TabIndex = 5;
             this.btn_yorumYap.Text = "Yorum Yap";
             this.btn_yorumYap.UseVisualStyleBackColor = false;
+            this.btn_yorumYap.Click += new System.EventHandler(this.btn_yorumYap_Click);
             // 
             // cmbBox_otelAdi
             // 
@@ -1987,7 +1988,7 @@
             "8",
             "9",
             "10"});
-            this.cmbBox_otelAdi.Location = new System.Drawing.Point(156, 81);
+            this.cmbBox_otelAdi.Location = new System.Drawing.Point(155, 84);
             this.cmbBox_otelAdi.Name = "cmbBox_otelAdi";
             this.cmbBox_otelAdi.Size = new System.Drawing.Size(202, 24);
             this.cmbBox_otelAdi.TabIndex = 1;
@@ -2014,12 +2015,13 @@
             this.btn_otelPuanVer.TabIndex = 3;
             this.btn_otelPuanVer.Text = "Puan Ver";
             this.btn_otelPuanVer.UseVisualStyleBackColor = false;
+            this.btn_otelPuanVer.Click += new System.EventHandler(this.btn_otelPuanVer_Click);
             // 
             // txt_yorum
             // 
             this.txt_yorum.AcceptsReturn = true;
             this.txt_yorum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_yorum.Location = new System.Drawing.Point(456, 71);
+            this.txt_yorum.Location = new System.Drawing.Point(465, 84);
             this.txt_yorum.Multiline = true;
             this.txt_yorum.Name = "txt_yorum";
             this.txt_yorum.Size = new System.Drawing.Size(402, 175);
@@ -2059,7 +2061,7 @@
             // 
             this.label63.AutoSize = true;
             this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label63.Location = new System.Drawing.Point(4, 81);
+            this.label63.Location = new System.Drawing.Point(4, 84);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(69, 20);
             this.label63.TabIndex = 16;

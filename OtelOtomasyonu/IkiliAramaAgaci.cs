@@ -9,6 +9,8 @@ namespace OtelOtomasyonu
     public class IkiliAramaAgaci
     {
         private IkiliAramaAgaciDugumu kok;
+        List<OtelBilgi> otelList = new List<OtelBilgi>();
+
         private string dugumler;
         public string tempOrtalama = "";
         public string advancedTemp = " ";
@@ -43,6 +45,10 @@ namespace OtelOtomasyonu
             }
             return count;
         }
+        public List<OtelBilgi> otelListe()
+        {
+            return otelList;
+        }
         public void PreOrder()
         {
             dugumler = "";
@@ -58,6 +64,7 @@ namespace OtelOtomasyonu
         }
         private void Ziyaret(IkiliAramaAgaciDugumu dugum)
         {
+            otelList.Add(dugum.veri);
             dugumler += "Adı: " + dugum.veri.OtelAdi + " " + "Il-Ilçe: " + dugum.veri.Il_Ilce + " " + "Adres: " + dugum.veri.Adres + " " +
             "Telefon: " + dugum.veri.Telefon + " " + "EPosta: " + dugum.veri.EPosta + " " + "Yıldız Sayısı: " + dugum.veri.YildizSayisi + " "+
             "Oda Sayısı: " + dugum.veri.OdaSayisi + " " + "Oda Tipi: " + dugum.veri.OdaTipi + " " + "Puan: " + dugum.veri.OtelPuani +
