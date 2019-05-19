@@ -22,7 +22,7 @@ namespace OtelOtomasyonu
                 Personel_Bilgi = (PersonelBilgi)item.Data;
                 listPer.Add(Personel_Bilgi);
                 temp += "Personel TC " + Personel_Bilgi.TC + " " + "Personel Adı" + Personel_Bilgi.Ad + Personel_Bilgi.Soyad +
-                "Telefon" + Personel_Bilgi.Telefon + "Adres " + Personel_Bilgi.Adres + " Eposta " + Personel_Bilgi.EPosta + Environment.NewLine;
+                "Telefon" + Personel_Bilgi.Telefon + "Adres " + Personel_Bilgi.Adres + " Eposta " + Personel_Bilgi.EPosta + " Departman : "+Personel_Bilgi.Departman+ "Pozisyon  "+Personel_Bilgi.Pozisyon+"Personel Puanı ="+Personel_Bilgi.PersonelPuani + Environment.NewLine;
                 item = item.Next;
             }
 

@@ -85,6 +85,7 @@
             this.btn_OtelKaydet = new System.Windows.Forms.Button();
             this.tbpDuzenlePersonel = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.cmbBox_Psil = new System.Windows.Forms.ComboBox();
             this.txt_SilPerTc = new System.Windows.Forms.TextBox();
             this.btn_perSil = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
@@ -154,6 +155,11 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.txt_PuanlaPerAdi = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_personelPuanGetir = new System.Windows.Forms.Button();
+            this.cmbBox_PerOtelPuanla = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.btn_PerPuanVer = new System.Windows.Forms.Button();
             this.txt_puanlaTC = new System.Windows.Forms.TextBox();
@@ -201,7 +207,8 @@
             this.txt_kullaniciAdi = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.cmbBox_Psil = new System.Windows.Forms.ComboBox();
+            this.txt_PerPuanlaDepartman = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tbpDuzenle.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl3.SuspendLayout();
@@ -835,7 +842,7 @@
             this.tbpDuzenlePersonel.Location = new System.Drawing.Point(4, 25);
             this.tbpDuzenlePersonel.Name = "tbpDuzenlePersonel";
             this.tbpDuzenlePersonel.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpDuzenlePersonel.Size = new System.Drawing.Size(1129, 673);
+            this.tbpDuzenlePersonel.Size = new System.Drawing.Size(1152, 684);
             this.tbpDuzenlePersonel.TabIndex = 1;
             this.tbpDuzenlePersonel.Text = "Personel Bilgisi Düzenle";
             // 
@@ -851,6 +858,15 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(825, 136);
             this.panel12.TabIndex = 3;
+            // 
+            // cmbBox_Psil
+            // 
+            this.cmbBox_Psil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBox_Psil.FormattingEnabled = true;
+            this.cmbBox_Psil.Location = new System.Drawing.Point(53, 80);
+            this.cmbBox_Psil.Name = "cmbBox_Psil";
+            this.cmbBox_Psil.Size = new System.Drawing.Size(167, 24);
+            this.cmbBox_Psil.TabIndex = 11;
             // 
             // txt_SilPerTc
             // 
@@ -1514,7 +1530,7 @@
             this.panel16.Controls.Add(this.pictureBox5);
             this.panel16.Controls.Add(this.pictureBox2);
             this.panel16.Controls.Add(this.pictureBox4);
-            this.panel16.Location = new System.Drawing.Point(339, 35);
+            this.panel16.Location = new System.Drawing.Point(339, 15);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(402, 153);
             this.panel16.TabIndex = 23;
@@ -1578,14 +1594,21 @@
             // 
             this.panel15.BackColor = System.Drawing.Color.MediumAquamarine;
             this.panel15.Controls.Add(this.panel17);
-            this.panel15.Location = new System.Drawing.Point(339, 223);
+            this.panel15.Location = new System.Drawing.Point(339, 174);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(402, 308);
+            this.panel15.Size = new System.Drawing.Size(402, 406);
             this.panel15.TabIndex = 21;
             // 
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.Azure;
+            this.panel17.Controls.Add(this.txt_PerPuanlaDepartman);
+            this.panel17.Controls.Add(this.label8);
+            this.panel17.Controls.Add(this.txt_PuanlaPerAdi);
+            this.panel17.Controls.Add(this.label7);
+            this.panel17.Controls.Add(this.btn_personelPuanGetir);
+            this.panel17.Controls.Add(this.cmbBox_PerOtelPuanla);
+            this.panel17.Controls.Add(this.label5);
             this.panel17.Controls.Add(this.label60);
             this.panel17.Controls.Add(this.btn_PerPuanVer);
             this.panel17.Controls.Add(this.txt_puanlaTC);
@@ -1594,8 +1617,59 @@
             this.panel17.Controls.Add(this.label58);
             this.panel17.Location = new System.Drawing.Point(14, 14);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(375, 279);
+            this.panel17.Size = new System.Drawing.Size(375, 377);
             this.panel17.TabIndex = 24;
+            // 
+            // txt_PuanlaPerAdi
+            // 
+            this.txt_PuanlaPerAdi.AcceptsReturn = true;
+            this.txt_PuanlaPerAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_PuanlaPerAdi.Location = new System.Drawing.Point(154, 196);
+            this.txt_PuanlaPerAdi.Name = "txt_PuanlaPerAdi";
+            this.txt_PuanlaPerAdi.Size = new System.Drawing.Size(202, 27);
+            this.txt_PuanlaPerAdi.TabIndex = 24;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(3, 203);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 20);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Personel Adı";
+            // 
+            // btn_personelPuanGetir
+            // 
+            this.btn_personelPuanGetir.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btn_personelPuanGetir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_personelPuanGetir.ForeColor = System.Drawing.Color.White;
+            this.btn_personelPuanGetir.Location = new System.Drawing.Point(154, 147);
+            this.btn_personelPuanGetir.Name = "btn_personelPuanGetir";
+            this.btn_personelPuanGetir.Size = new System.Drawing.Size(201, 34);
+            this.btn_personelPuanGetir.TabIndex = 23;
+            this.btn_personelPuanGetir.Text = "Getir";
+            this.btn_personelPuanGetir.UseVisualStyleBackColor = false;
+            this.btn_personelPuanGetir.Click += new System.EventHandler(this.btn_personelPuanGetir_Click_1);
+            // 
+            // cmbBox_PerOtelPuanla
+            // 
+            this.cmbBox_PerOtelPuanla.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBox_PerOtelPuanla.FormattingEnabled = true;
+            this.cmbBox_PerOtelPuanla.Location = new System.Drawing.Point(169, 61);
+            this.cmbBox_PerOtelPuanla.Name = "cmbBox_PerOtelPuanla";
+            this.cmbBox_PerOtelPuanla.Size = new System.Drawing.Size(167, 24);
+            this.cmbBox_PerOtelPuanla.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(20, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 20);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Otel Seciniz";
             // 
             // label60
             // 
@@ -1613,7 +1687,7 @@
             this.btn_PerPuanVer.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_PerPuanVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_PerPuanVer.ForeColor = System.Drawing.Color.White;
-            this.btn_PerPuanVer.Location = new System.Drawing.Point(155, 200);
+            this.btn_PerPuanVer.Location = new System.Drawing.Point(154, 319);
             this.btn_PerPuanVer.Name = "btn_PerPuanVer";
             this.btn_PerPuanVer.Size = new System.Drawing.Size(201, 34);
             this.btn_PerPuanVer.TabIndex = 3;
@@ -1625,7 +1699,7 @@
             // 
             this.txt_puanlaTC.AcceptsReturn = true;
             this.txt_puanlaTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_puanlaTC.Location = new System.Drawing.Point(155, 74);
+            this.txt_puanlaTC.Location = new System.Drawing.Point(155, 102);
             this.txt_puanlaTC.Name = "txt_puanlaTC";
             this.txt_puanlaTC.Size = new System.Drawing.Size(202, 27);
             this.txt_puanlaTC.TabIndex = 1;
@@ -1634,7 +1708,7 @@
             // 
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label59.Location = new System.Drawing.Point(6, 144);
+            this.label59.Location = new System.Drawing.Point(6, 282);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(78, 20);
             this.label59.TabIndex = 18;
@@ -1655,7 +1729,7 @@
             "8",
             "9",
             "10"});
-            this.cmbBox_perPuan.Location = new System.Drawing.Point(155, 140);
+            this.cmbBox_perPuan.Location = new System.Drawing.Point(155, 278);
             this.cmbBox_perPuan.Name = "cmbBox_perPuan";
             this.cmbBox_perPuan.Size = new System.Drawing.Size(202, 24);
             this.cmbBox_perPuan.TabIndex = 2;
@@ -1664,7 +1738,7 @@
             // 
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label58.Location = new System.Drawing.Point(4, 81);
+            this.label58.Location = new System.Drawing.Point(4, 109);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(107, 20);
             this.label58.TabIndex = 16;
@@ -2180,14 +2254,24 @@
             this.pictureBox14.TabIndex = 3;
             this.pictureBox14.TabStop = false;
             // 
-            // cmbBox_Psil
+            // txt_PerPuanlaDepartman
             // 
-            this.cmbBox_Psil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBox_Psil.FormattingEnabled = true;
-            this.cmbBox_Psil.Location = new System.Drawing.Point(53, 80);
-            this.cmbBox_Psil.Name = "cmbBox_Psil";
-            this.cmbBox_Psil.Size = new System.Drawing.Size(167, 24);
-            this.cmbBox_Psil.TabIndex = 11;
+            this.txt_PerPuanlaDepartman.AcceptsReturn = true;
+            this.txt_PerPuanlaDepartman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_PerPuanlaDepartman.Location = new System.Drawing.Point(155, 237);
+            this.txt_PerPuanlaDepartman.Name = "txt_PerPuanlaDepartman";
+            this.txt_PerPuanlaDepartman.Size = new System.Drawing.Size(202, 27);
+            this.txt_PerPuanlaDepartman.TabIndex = 26;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(4, 244);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 20);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Departman Adı";
             // 
             // Form1
             // 
@@ -2429,6 +2513,13 @@
         private System.Windows.Forms.Button btn_departman;
         private System.Windows.Forms.ComboBox cmbBox_yildiz;
         private System.Windows.Forms.ComboBox cmbBox_Psil;
+        private System.Windows.Forms.ComboBox cmbBox_PerOtelPuanla;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_personelPuanGetir;
+        private System.Windows.Forms.TextBox txt_PuanlaPerAdi;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_PerPuanlaDepartman;
+        private System.Windows.Forms.Label label8;
     }
 }
 

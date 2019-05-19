@@ -333,6 +333,7 @@ namespace OtelOtomasyonu
             cmbBox_perOtel.Items.AddRange(temp);
             cmbBox_pergOtel.Items.AddRange(temp);
             cmbBox_Psil.Items.AddRange(temp);
+            cmbBox_PerOtelPuanla.Items.AddRange(temp);
 
 
 
@@ -487,6 +488,23 @@ namespace OtelOtomasyonu
             }
 
         }
+        private void PersonelPuanEkle(OtelBilgi o)
+        {
+           
+            foreach (PersonelBilgi p in ListPer)
+            {
+                if (p.TC == int.Parse(txt_puanlaTC.Text))
+                {
+
+                    p.PersonelPuani =int.Parse( cmbBox_perPuan.SelectedItem.ToString());
+
+                    o.PersonelBilgiList.Find(p.TC).Data = p;
+                    aramaAgaci.OtelBilgiGuncelle(o);
+                    break;
+                }
+            }
+
+        }
         private void PersonelDoldurText(List<PersonelBilgi> list)
         {
             foreach (PersonelBilgi p in list)
@@ -503,10 +521,26 @@ namespace OtelOtomasyonu
                     txt_gPerPuan.Text = p.PersonelPuani.ToString();
                     break;
                 }
+                
+
             }
         }
+        private void PuanlamaPersonelDoldur(List<PersonelBilgi> list)
+        {
+            foreach (PersonelBilgi p in list)
+            {
+                if (p.TC == int.Parse(txt_puanlaTC.Text))
+                {
+                    txt_PuanlaPerAdi.Text = p.Ad;
+                    txt_PerPuanlaDepartman.Text = p.Departman;
+                    break;
+                }
 
-        private void btn_perSil_Click(object sender, EventArgs e)
+
+            }
+        }
+        
+    private void btn_perSil_Click(object sender, EventArgs e)
         {
             ListPer = aramaAgaci.perListe();
 
@@ -541,12 +575,46 @@ namespace OtelOtomasyonu
 
         private void btn_PerPuanVer_Click(object sender, EventArgs e)
         {
+            try
+            {
+                foreach (OtelBilgi o in ListOtel)
+                {
+                    if (cmbBox_PerOtelPuanla.SelectedItem.ToString() == o.OtelAdi)
+                    {
+                        PersonelPuanEkle(o);
+                        break;
+                    }
+                }
+                MessageBox.Show("Personel Puanlaması Başarılı");
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void btn_departman_Click(object sender, EventArgs e)
         {
 
+        }
+
+        
+
+        private void btn_personelPuanGetir_Click_1(object sender, EventArgs e)
+        {
+            ListPer = aramaAgaci.perListe();
+
+            foreach (OtelBilgi o in ListOtel)
+            {
+                if (cmbBox_PerOtelPuanla.SelectedItem.ToString() == o.OtelAdi)
+                {
+                    List<PersonelBilgi> list = o.PersonelBilgiList.ListePersonel();
+                    PuanlamaPersonelDoldur(list);
+                    break;
+                }
+            }
         }
     }
 }
