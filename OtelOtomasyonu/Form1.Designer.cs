@@ -201,6 +201,7 @@
             this.txt_kullaniciAdi = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.cmbBox_Psil = new System.Windows.Forms.ComboBox();
             this.tbpDuzenle.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl3.SuspendLayout();
@@ -276,10 +277,10 @@
             // 
             this.tabControl3.Controls.Add(this.tbpDuzenleOtel);
             this.tabControl3.Controls.Add(this.tbpDuzenlePersonel);
-            this.tabControl3.Location = new System.Drawing.Point(199, 14);
+            this.tabControl3.Location = new System.Drawing.Point(176, 3);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(1137, 702);
+            this.tabControl3.Size = new System.Drawing.Size(1160, 713);
             this.tabControl3.TabIndex = 0;
             // 
             // tbpDuzenleOtel
@@ -291,7 +292,7 @@
             this.tbpDuzenleOtel.Location = new System.Drawing.Point(4, 25);
             this.tbpDuzenleOtel.Name = "tbpDuzenleOtel";
             this.tbpDuzenleOtel.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpDuzenleOtel.Size = new System.Drawing.Size(1129, 673);
+            this.tbpDuzenleOtel.Size = new System.Drawing.Size(1152, 684);
             this.tbpDuzenleOtel.TabIndex = 0;
             this.tbpDuzenleOtel.Text = "Otel Bilgisi Düzenle";
             // 
@@ -841,6 +842,7 @@
             // panel12
             // 
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel12.Controls.Add(this.cmbBox_Psil);
             this.panel12.Controls.Add(this.txt_SilPerTc);
             this.panel12.Controls.Add(this.btn_perSil);
             this.panel12.Controls.Add(this.label32);
@@ -854,7 +856,7 @@
             // 
             this.txt_SilPerTc.AcceptsReturn = true;
             this.txt_SilPerTc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_SilPerTc.Location = new System.Drawing.Point(319, 78);
+            this.txt_SilPerTc.Location = new System.Drawing.Point(403, 77);
             this.txt_SilPerTc.Name = "txt_SilPerTc";
             this.txt_SilPerTc.Size = new System.Drawing.Size(166, 27);
             this.txt_SilPerTc.TabIndex = 1;
@@ -864,7 +866,7 @@
             this.btn_perSil.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_perSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_perSil.ForeColor = System.Drawing.Color.White;
-            this.btn_perSil.Location = new System.Drawing.Point(553, 74);
+            this.btn_perSil.Location = new System.Drawing.Point(637, 73);
             this.btn_perSil.Name = "btn_perSil";
             this.btn_perSil.Size = new System.Drawing.Size(166, 35);
             this.btn_perSil.TabIndex = 2;
@@ -887,7 +889,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label33.Location = new System.Drawing.Point(142, 85);
+            this.label33.Location = new System.Drawing.Point(226, 84);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(107, 20);
             this.label33.TabIndex = 5;
@@ -1086,6 +1088,7 @@
             this.txt_gPerPuan.Name = "txt_gPerPuan";
             this.txt_gPerPuan.Size = new System.Drawing.Size(166, 27);
             this.txt_gPerPuan.TabIndex = 10;
+            // 
             // txt_gPerPosta
             // 
             this.txt_gPerPosta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -1456,6 +1459,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Puan";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_departman
             // 
@@ -1468,6 +1472,7 @@
             this.btn_departman.TabIndex = 4;
             this.btn_departman.Text = "Departman";
             this.btn_departman.UseVisualStyleBackColor = false;
+            this.btn_departman.Click += new System.EventHandler(this.btn_departman_Click);
             // 
             // lstBox_personel
             // 
@@ -1614,6 +1619,7 @@
             this.btn_PerPuanVer.TabIndex = 3;
             this.btn_PerPuanVer.Text = "Puan Ver";
             this.btn_PerPuanVer.UseVisualStyleBackColor = false;
+            this.btn_PerPuanVer.Click += new System.EventHandler(this.btn_PerPuanVer_Click);
             // 
             // txt_puanlaTC
             // 
@@ -1990,6 +1996,7 @@
             this.cmbBox_otelAdi.Name = "cmbBox_otelAdi";
             this.cmbBox_otelAdi.Size = new System.Drawing.Size(202, 24);
             this.cmbBox_otelAdi.TabIndex = 1;
+            // 
             // label61
             // 
             this.label61.AutoSize = true;
@@ -2172,6 +2179,15 @@
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox14.TabIndex = 3;
             this.pictureBox14.TabStop = false;
+            // 
+            // cmbBox_Psil
+            // 
+            this.cmbBox_Psil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBox_Psil.FormattingEnabled = true;
+            this.cmbBox_Psil.Location = new System.Drawing.Point(53, 80);
+            this.cmbBox_Psil.Name = "cmbBox_Psil";
+            this.cmbBox_Psil.Size = new System.Drawing.Size(167, 24);
+            this.cmbBox_Psil.TabIndex = 11;
             // 
             // Form1
             // 
@@ -2412,6 +2428,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_departman;
         private System.Windows.Forms.ComboBox cmbBox_yildiz;
+        private System.Windows.Forms.ComboBox cmbBox_Psil;
     }
 }
 

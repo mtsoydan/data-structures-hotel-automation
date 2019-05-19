@@ -50,7 +50,7 @@ namespace OtelOtomasyonu
         public void XmlOtelListele()
         {
             aramaAgaci = new IkiliAramaAgaci();
-            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement otelXml in rootElement.Elements())
             {
@@ -79,7 +79,7 @@ namespace OtelOtomasyonu
         }
         public void XmlPersonelListele(int OtelID, OtelBilgi _o)
         {
-            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement perXml in rootElement.Elements())
             {
@@ -105,6 +105,7 @@ namespace OtelOtomasyonu
                     // per.Pozisyon = perXml.Element("Pozisyon").Value;
                     // per.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
                     _o.PersonelBilgiList.InsertLast(otel.personelBilgi);//otelin içine eleman kaydedilir
+                    
                 }
 
             }
@@ -209,11 +210,20 @@ namespace OtelOtomasyonu
         }
         private void cmbBox_ililce_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbBox_otelListe.Enabled = true;
-            string anahtar = cmbBox_ililce.SelectedItem.ToString();
-            //int hIndis = hashMap.hashFonksiyonu(anahtar, 10);
-            //textListeleOtel.Text = hashMap.tablo[hIndis].h.PuanaGoreListele();
-            textListeleOtel.Text = hashMap.GetOtelBilgiPuan(anahtar);
+            try
+            {
+                cmbBox_otelListe.Enabled = true;
+                string anahtar = cmbBox_ililce.SelectedItem.ToString();
+                //int hIndis = hashMap.hashFonksiyonu(anahtar, 10);
+                //textListeleOtel.Text = hashMap.tablo[hIndis].h.PuanaGoreListele();
+                textListeleOtel.Text = hashMap.GetOtelBilgiPuan(anahtar);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Otel Bulunamadı");
+            }
+          
         }
 
         private void btn_otelGuncelle_Click(object sender, EventArgs e)
@@ -322,6 +332,9 @@ namespace OtelOtomasyonu
             cmbBox_otelSil.Items.AddRange(temp);
             cmbBox_perOtel.Items.AddRange(temp);
             cmbBox_pergOtel.Items.AddRange(temp);
+            cmbBox_Psil.Items.AddRange(temp);
+
+
 
 
         }
@@ -351,6 +364,7 @@ namespace OtelOtomasyonu
             {
                 if (cmbBox_otelAdi.SelectedItem.ToString() == o.OtelAdi)
                 {
+                    o.otelYorum = new OtelYorum();
                     o.otelYorum.YorumSahibiAd = "Ali";
                     o.otelYorum.YorumSahibiSoyad = "Veli";
                     o.otelYorum.Posta = "aliveli@gmail.com";
@@ -410,6 +424,7 @@ namespace OtelOtomasyonu
       
         private void btn_perGuncelle_Click(object sender, EventArgs e)
         {
+            ListPer = aramaAgaci.perListe();
             foreach (OtelBilgi o in ListOtel)
             {
                 if (cmbBox_pergOtel.SelectedItem.ToString() == o.OtelAdi)
@@ -433,10 +448,29 @@ namespace OtelOtomasyonu
         }
         private void PersonelBilgiGuncelle(OtelBilgi o)
         {
+            //foreach (PersonelBilgi p in ListPer)
+            //{
+            //    if (p.TC == int.Parse(txt_gPerTc.Text))
+            //    {
+            //        p.Ad = txt_gPerAd.Text;
+            //        p.Soyad = txt_gPerSoyad.Text;
+            //        p.Adres = txt_gPerAdres.Text;
+            //        p.Telefon = txt_gPerTelefon.Text;
+            //        p.EPosta = txt_gPerPosta.Text;
+            //        p.Departman = txt_gPerDepartman.Text;
+            //        p.Pozisyon = txt_gPerPozisyon.Text;
+            //        p.PersonelPuani = Convert.ToInt32(txt_gPerPuan.Text);
+
+            //        o.PersonelBilgiList.Find(p.TC).Data = p;
+            //        aramaAgaci.OtelBilgiGuncelle(o);
+            //        break;
+            //    }
+            //}
             foreach (PersonelBilgi p in ListPer)
             {
                 if (p.TC == int.Parse(txt_gPerTc.Text))
                 {
+                    
                     p.Ad = txt_gPerAd.Text;
                     p.Soyad = txt_gPerSoyad.Text;
                     p.Adres = txt_gPerAdres.Text;
@@ -451,6 +485,7 @@ namespace OtelOtomasyonu
                     break;
                 }
             }
+
         }
         private void PersonelDoldurText(List<PersonelBilgi> list)
         {
@@ -473,19 +508,46 @@ namespace OtelOtomasyonu
 
         private void btn_perSil_Click(object sender, EventArgs e)
         {
-            foreach (PersonelBilgi p in ListPer)
+            ListPer = aramaAgaci.perListe();
+
+            foreach (OtelBilgi o in ListOtel)
             {
-                if (Convert.ToInt32(txt_SilPerTc) == p.TC)
+                if (cmbBox_Psil.SelectedItem.ToString() == o.OtelAdi)
                 {
-                    int pos = otel.PersonelBilgiList.GetElement(p.TC);
-                    otel.PersonelBilgiList.DeletePosition(pos);
+                    foreach (PersonelBilgi p in ListPer)
+                    {
+                        if (Convert.ToInt32(txt_SilPerTc.Text) == p.TC)
+                        {
+                            int pos = o.PersonelBilgiList.GetElement(p.TC);
+
+                            o.PersonelBilgiList.DeletePosition(pos);
+
+                            aramaAgaci.OtelBilgiGuncelle(o);
+
+                            break;
+                        }
+                    }
                     break;
                 }
             }
+            
             MessageBox.Show("Kayıt silindi");
         }
 
-    
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_PerPuanVer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_departman_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

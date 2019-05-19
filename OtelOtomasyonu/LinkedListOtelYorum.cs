@@ -8,18 +8,48 @@ namespace OtelOtomasyonu
 {
     public class LinkedListOtelYorum : ListADT
     {
+        public override void DeleteFirst()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void DeleteLast()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void DeletePosition(int pos)
+        {
+            throw new NotImplementedException();
+        }
 
         public override string DisplayElements()
         {
             string temp = "";
             Node item = Head;
+            OtelBilgi Otel_Yorum;
             while (item != null)
             {
-                temp += "-->" + item.Data;
+                //todo : alttaki değişken değerlerini aktar
+
+                Otel_Yorum = (OtelBilgi)item.Data;
+
+                temp += "YorumSahibiAd" +Otel_Yorum.otelYorum.YorumSahibiAd + "YorumSahibiSoyad " + Otel_Yorum.otelYorum.YorumSahibiSoyad +
+                "Posta" + Otel_Yorum.otelYorum.Posta + "Yorum " + Otel_Yorum.otelYorum.Yorum;
                 item = item.Next;
             }
 
             return temp;
+        }
+
+        public override Node Find(int tc)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int GetElement(int tc)
+        {
+            throw new NotImplementedException();
         }
 
         public override void InsertFirst(object value)

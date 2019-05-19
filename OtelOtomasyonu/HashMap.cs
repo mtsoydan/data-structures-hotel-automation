@@ -76,7 +76,7 @@ namespace OtelOtomasyonu
         
         public string GetOtelBilgiPuan(string anahtar)
         {
-            string temp = "";
+          
             int hash = hashFonksiyonu(anahtar, 10);
             while (tablo[hash] != null && tablo[hash].anahtar != anahtar)
             {

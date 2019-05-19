@@ -82,19 +82,29 @@ namespace OtelOtomasyonu
 
         public override void DeleteFirst()
         {
-            if (Head != null)
-            {
-                Node tempHeadNext = this.Head.Next;
-                if (tempHeadNext == null)
-                {
-                    Head = null;
-                }
-                else
-                {
-                    Head = tempHeadNext;
-                    Size--;
-                }
+            //if (Head != null)
+            //{
+            //    Node tempHeadNext = this.Head.Next;
+            //    if (tempHeadNext == null)
+            //    {
+            //        Head = null;
+            //    }
+            //    else
+            //    {
+            //        Head = tempHeadNext;
+            //        Size--;
+            //    }
 
+            //}
+            Node temp = this.Head.Next;
+            if (temp.Next == null)
+            {
+                Head = null;
+            }
+            else
+            {
+                Head = temp;
+                Size--;
             }
         }
 
@@ -117,22 +127,57 @@ namespace OtelOtomasyonu
                 Head = null;
         }
 
-        public override void DeletePosition(int pos)
+        public override void DeletePosition(int position)
         {
             Node posNode = Head;
             Node prevPosNode = null;
             int count = 0;
             while (posNode != null)
             {
-                if (count == pos)
+                if (count == position)
                 {
                     prevPosNode.Next = posNode.Next;
                     posNode = null;
+                    break;
                 }
+                prevPosNode = posNode;
                 posNode = posNode.Next;
                 count++;
             }
+            //Node tmp = Head;
+            //Node tmpPrev = null;
+            //int sayac = 0;
+            //while (tmp != null)
+            //{
+            //    if (position < Size)
+            //    {
+            //        if (tmpPrev == null)
+            //        {
+            //            DeleteFirst();
+            //            break;
+            //        }
+            //        if (sayac == (position))
+            //        {
+
+            //            tmpPrev.Next = tmp.Next;
+            //            tmp = null;
+            //            Size--;
+            //            break;
+            //        }
+            //        tmpPrev = tmp;
+            //        tmp = tmp.Next;
+            //        sayac++;
+            //    }
+
+
+
+
+
+            //}
         }
+
+      
+
 
         public override int GetElement(int tc)
         {
@@ -171,9 +216,10 @@ namespace OtelOtomasyonu
 
                 }
                 tempNode = tempNode.Next;
-                
+
             }
             return retNode;
         }
     }
+
 }

@@ -10,6 +10,8 @@ namespace OtelOtomasyonu
     {
         private IkiliAramaAgaciDugumu kok;
         List<OtelBilgi> otelList = new List<OtelBilgi>();
+        List<PersonelBilgi> perlist = new List<PersonelBilgi>();
+
 
         private string dugumler;
         public string tempOrtalama = "";
@@ -49,6 +51,10 @@ namespace OtelOtomasyonu
         {
             return otelList;
         }
+        public List<PersonelBilgi> perListe()
+        {
+            return perlist;
+        }
         public void PreOrder()
         {
             dugumler = "";
@@ -65,10 +71,11 @@ namespace OtelOtomasyonu
         private void Ziyaret(IkiliAramaAgaciDugumu dugum)
         {
             otelList.Add(dugum.veri);
+            perlist.Add(dugum.veri.personelBilgi);
             dugumler += ">> Adı: " + dugum.veri.OtelAdi + " " + "Il-Ilçe: " + dugum.veri.Il_Ilce + " " + "Adres: " + dugum.veri.Adres + " " +
-            "Telefon: " + dugum.veri.Telefon + " " + "EPosta: " + dugum.veri.EPosta + " " + "Yıldız Sayısı: " + dugum.veri.YildizSayisi + " "+
+            "Telefon: " + dugum.veri.Telefon + " " + "EPosta: " + dugum.veri.EPosta + " " + "Yıldız Sayısı: " + dugum.veri.YildizSayisi + " " +
             "Oda Sayısı: " + dugum.veri.OdaSayisi + " " + "Oda Tipi: " + dugum.veri.OdaTipi + " " + "Puan: " + dugum.veri.OtelPuani +
-            Environment.NewLine + "Otel Yorumları--> " + dugum.veri.OtelYorumList.DisplayElements() + Environment.NewLine+
+            Environment.NewLine + "Otel Yorumları--> " + dugum.veri.OtelYorumList.DisplayElements() + Environment.NewLine +
             "Personel Bilgileri--> " + dugum.veri.PersonelBilgiList.DisplayElements() + Environment.NewLine + Environment.NewLine;
         }
         
