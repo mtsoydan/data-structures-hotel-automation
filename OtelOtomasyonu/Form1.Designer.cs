@@ -328,7 +328,6 @@
             this.cmbBox_otelSil.Name = "cmbBox_otelSil";
             this.cmbBox_otelSil.Size = new System.Drawing.Size(166, 24);
             this.cmbBox_otelSil.TabIndex = 1;
-            this.cmbBox_otelSil.SelectedIndexChanged += new System.EventHandler(this.cmbBox_otelSil_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -418,7 +417,6 @@
             this.cmbBox_gOtelAd.Name = "cmbBox_gOtelAd";
             this.cmbBox_gOtelAd.Size = new System.Drawing.Size(166, 24);
             this.cmbBox_gOtelAd.TabIndex = 1;
-            this.cmbBox_gOtelAd.SelectedIndexChanged += new System.EventHandler(this.cmbBox_gOtelAd_SelectedIndexChanged);
             // 
             // cmbBox_gIL
             // 
@@ -872,6 +870,7 @@
             this.btn_perSil.TabIndex = 2;
             this.btn_perSil.Text = "SİL";
             this.btn_perSil.UseVisualStyleBackColor = false;
+            this.btn_perSil.Click += new System.EventHandler(this.btn_perSil_Click);
             // 
             // label32
             // 
@@ -933,7 +932,6 @@
             this.cmbBox_pergOtel.Name = "cmbBox_pergOtel";
             this.cmbBox_pergOtel.Size = new System.Drawing.Size(167, 24);
             this.cmbBox_pergOtel.TabIndex = 14;
-            this.cmbBox_pergOtel.SelectedIndexChanged += new System.EventHandler(this.cmbBox_pergOtel_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -956,6 +954,7 @@
             this.btn_perGetir.TabIndex = 2;
             this.btn_perGetir.Text = "Getir";
             this.btn_perGetir.UseVisualStyleBackColor = false;
+            this.btn_perGetir.Click += new System.EventHandler(this.btn_perGetir_Click);
             // 
             // txt_gPerSoyad
             // 
@@ -1087,7 +1086,6 @@
             this.txt_gPerPuan.Name = "txt_gPerPuan";
             this.txt_gPerPuan.Size = new System.Drawing.Size(166, 27);
             this.txt_gPerPuan.TabIndex = 10;
-            // 
             // txt_gPerPosta
             // 
             this.txt_gPerPosta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -1142,6 +1140,7 @@
             this.btn_perGuncelle.TabIndex = 11;
             this.btn_perGuncelle.Text = "GÜNCELLE";
             this.btn_perGuncelle.UseVisualStyleBackColor = false;
+            this.btn_perGuncelle.Click += new System.EventHandler(this.btn_perGuncelle_Click);
             // 
             // panel14
             // 
@@ -1181,7 +1180,6 @@
             this.cmbBox_perOtel.Name = "cmbBox_perOtel";
             this.cmbBox_perOtel.Size = new System.Drawing.Size(167, 24);
             this.cmbBox_perOtel.TabIndex = 4;
-            this.cmbBox_perOtel.SelectedIndexChanged += new System.EventHandler(this.cmbBox_perOtel_SelectedIndexChanged);
             // 
             // txt_perDepartman
             // 
@@ -1446,7 +1444,6 @@
             this.cmbBox_departman.Size = new System.Drawing.Size(202, 28);
             this.cmbBox_departman.TabIndex = 5;
             this.cmbBox_departman.Text = "       Departman";
-            this.cmbBox_departman.SelectedIndexChanged += new System.EventHandler(this.cmbBox_departman_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -1459,7 +1456,6 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Puan";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_departman
             // 
@@ -1472,7 +1468,6 @@
             this.btn_departman.TabIndex = 4;
             this.btn_departman.Text = "Departman";
             this.btn_departman.UseVisualStyleBackColor = false;
-            this.btn_departman.Click += new System.EventHandler(this.btn_departman_Click);
             // 
             // lstBox_personel
             // 
@@ -1691,7 +1686,6 @@
             this.tbpListeleOtel.Size = new System.Drawing.Size(1134, 647);
             this.tbpListeleOtel.TabIndex = 2;
             this.tbpListeleOtel.Text = "Otel Listele";
-            this.tbpListeleOtel.Click += new System.EventHandler(this.tbpListeleOtel_Click);
             // 
             // textListeleOtel
             // 
@@ -1702,7 +1696,6 @@
             this.textListeleOtel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textListeleOtel.Size = new System.Drawing.Size(638, 549);
             this.textListeleOtel.TabIndex = 10;
-            this.textListeleOtel.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cmbBox_yildiz
             // 
@@ -1997,8 +1990,6 @@
             this.cmbBox_otelAdi.Name = "cmbBox_otelAdi";
             this.cmbBox_otelAdi.Size = new System.Drawing.Size(202, 24);
             this.cmbBox_otelAdi.TabIndex = 1;
-            this.cmbBox_otelAdi.SelectedIndexChanged += new System.EventHandler(this.cmbBox_otelAdi_SelectedIndexChanged);
-            // 
             // label61
             // 
             this.label61.AutoSize = true;

@@ -22,16 +22,17 @@ namespace OtelOtomasyonu
         }
         IkiliAramaAgaciDugumu aramaDugum;
         IkiliAramaAgaci aramaAgaci = new IkiliAramaAgaci();
-       // LinkedListPersonelBİlgi linkedPer = new LinkedListPersonelBİlgi();
-       //  LinkedListOtelYorum linkedYorum = new LinkedListOtelYorum();
+        // LinkedListPersonelBİlgi linkedPer = new LinkedListPersonelBİlgi();
+        //  LinkedListOtelYorum linkedYorum = new LinkedListOtelYorum();
         HashMap hashMap = new HashMap();
         HashMapChain mapChain = new HashMapChain();
         OtelBilgi otel;
         List<OtelBilgi> ListOtel = new List<OtelBilgi>();
+        List<PersonelBilgi> ListPer = new List<PersonelBilgi>();
 
-       //ersonelBilgi per;
+        //ersonelBilgi per;
         //OtelYorum yorum;     
-        int otelId =9;
+        int otelId = 9;
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,7 +77,7 @@ namespace OtelOtomasyonu
 
             }
         }
-        public void XmlPersonelListele(int OtelID,OtelBilgi _o)
+        public void XmlPersonelListele(int OtelID, OtelBilgi _o)
         {
             XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
             XElement rootElement = xDoc.Root;
@@ -94,18 +95,18 @@ namespace OtelOtomasyonu
                     otel.personelBilgi.Departman = perXml.Element("Departman").Value;
                     otel.personelBilgi.Pozisyon = perXml.Element("Pozisyon").Value;
                     otel.personelBilgi.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
-                   // per.TC = Convert.ToInt32(perXml.Attribute("id").Value);
-                   // per.Ad = perXml.Element("Ad").Value;
-                   // per.Soyad = perXml.Element("Soyad").Value;
-                   //per.Adres = perXml.Element("Adres").Value;
-                   // per.Telefon = perXml.Element("Telefon").Value;
-                   // per.EPosta = perXml.Element("EPosta").Value;
-                   // per.Departman = perXml.Element("Departman").Value;
-                   // per.Pozisyon = perXml.Element("Pozisyon").Value;
-                   // per.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
+                    // per.TC = Convert.ToInt32(perXml.Attribute("id").Value);
+                    // per.Ad = perXml.Element("Ad").Value;
+                    // per.Soyad = perXml.Element("Soyad").Value;
+                    //per.Adres = perXml.Element("Adres").Value;
+                    // per.Telefon = perXml.Element("Telefon").Value;
+                    // per.EPosta = perXml.Element("EPosta").Value;
+                    // per.Departman = perXml.Element("Departman").Value;
+                    // per.Pozisyon = perXml.Element("Pozisyon").Value;
+                    // per.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
                     _o.PersonelBilgiList.InsertLast(otel.personelBilgi);//otelin içine eleman kaydedilir
                 }
-               
+
             }
         }
 
@@ -119,7 +120,7 @@ namespace OtelOtomasyonu
             XElement rootElement = xDoc.Root;
             foreach (XElement perXml in rootElement.Elements())
             {
-               
+
                 //xml den çekme
                 per.TC = Convert.ToInt32(perXml.Attribute("id").Value);
                 per.Ad = perXml.Element("Ad").Value;
@@ -131,11 +132,11 @@ namespace OtelOtomasyonu
                 per.Pozisyon = perXml.Element("Pozisyon").Value;
                 per.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
 
-                 aramaAgaci.OtelIDAra(Convert.ToInt32(perXml.Element("OtelId").Value));
-                 ///
+                aramaAgaci.OtelIDAra(Convert.ToInt32(perXml.Element("OtelId").Value));
+                ///
 
                 //arama agacına ekleyelim
-                 otel.PersonelBilgiList.InsertLast(per);
+                otel.PersonelBilgiList.InsertLast(per);
 
             }
         }
@@ -166,12 +167,12 @@ namespace OtelOtomasyonu
 
         private void btn_girisYap_Click(object sender, EventArgs e)
         {
-            if(txt_kullaniciAdi.Text=="m"&&txt_sifre.Text=="m")
+            if (txt_kullaniciAdi.Text == "m" && txt_sifre.Text == "m")
             {
                 tabCtrl.Controls.Remove(tbpDuzenle);
                 tabCtrl2.Controls.Remove(tbpListelePersonel);
                 tabCtrl2.Controls.Remove(tbpPuanlaPersonel);
-                
+
             }
             else if (txt_kullaniciAdi.Text == "a" && txt_sifre.Text == "a")
             {
@@ -193,12 +194,12 @@ namespace OtelOtomasyonu
             otel.OtelID = otelId++;
             otel.OtelAdi = txt_otelAdi.Text;
             otel.Il_Ilce = cmbBox_ililce.Text;
-            otel.Adres= txt_otelAdres.Text;
+            otel.Adres = txt_otelAdres.Text;
             otel.EPosta = txt_OtelPosta.Text;
             otel.OdaSayisi = Convert.ToInt32(txt_OtelOdaSayisi.Text);
             otel.Telefon = txt_OtelTelefon.Text;
             otel.YildizSayisi = Convert.ToInt32(txt_OtelYildiz.Text);
-            otel.OtelPuani = Convert.ToInt32("") ;
+            otel.OtelPuani = Convert.ToInt32("");
             otel.OdaTipi = txt_OtelOdaTipi.Text;
 
             hashMap.Add(otel.Il_Ilce, otel);
@@ -214,59 +215,52 @@ namespace OtelOtomasyonu
             //textListeleOtel.Text = hashMap.tablo[hIndis].h.PuanaGoreListele();
             textListeleOtel.Text = hashMap.GetOtelBilgiPuan(anahtar);
         }
-        
+
         private void btn_otelGuncelle_Click(object sender, EventArgs e)
         {
-            OtelBilgi otel = new OtelBilgi();
-           
-                if (otel.OtelAdi== cmbBox_gOtelAd.Text)
+            // OtelBilgi otel = new OtelBilgi();
+            foreach (OtelBilgi o in ListOtel)
+            {
+                if (cmbBox_gOtelAd.SelectedItem.ToString() == o.OtelAdi)
                 {
-               // otel.OtelID = ;
-                otel.Il_Ilce = cmbBox_gOtelILce.Text;
-                otel.Adres = txt_gOtelAdres.Text;
-                otel.EPosta = txt_gOtelTelefon.Text;
-                otel.Telefon = txt_gOtelPosta.Text;
-                otel.OdaSayisi =Convert.ToInt32( txt_gOtelYildiz.Text);
-                otel.OdaTipi = txt_gOtelOdaSayisi.Text;
-                otel.OtelPuani= Convert.ToInt32(txt_gOtelOdaTipi.Text);
-                otel.YildizSayisi = Convert.ToInt32(cmbBox_gOtelPuan.Text);
+                    o.Il_Ilce = cmbBox_gOtelILce.Text;
+                    o.Adres = txt_gOtelAdres.Text;
+                    o.EPosta = txt_gOtelTelefon.Text;
+                    o.Telefon = txt_gOtelPosta.Text;
+                    o.OdaSayisi = Convert.ToInt32(txt_gOtelYildiz.Text);
+                    o.OdaTipi = txt_gOtelOdaSayisi.Text;
+                    o.OtelPuani = Convert.ToInt32(txt_gOtelOdaTipi.Text);
+                    o.YildizSayisi = Convert.ToInt32(cmbBox_gOtelPuan.Text);
+
+                    //agac ve hash içinde güncelleme
+                    aramaAgaci.OtelBilgiGuncelle(o);
+                    int hIndis = hashMap.hashFonksiyonu(o.Il_Ilce, 10);
+                    hashMap.OtelBilgiGuncelle(hashMap.tablo[hIndis].h, o);
+                    break;
                 }
-                //agac ve hash içinde güncelleme
-            aramaAgaci.OtelBilgiGuncelle(otel);
-            int hIndis = hashMap.hashFonksiyonu(otel.Il_Ilce, 10);
-            hashMap.OtelBilgiGuncelle(hashMap.tablo[hIndis].h, otel);
+            }
+
             MessageBox.Show("Kayıt Başarılı Bir Şekilde Güncellendi");
 
         }
-       
+
         private void btn_OtelSil_Click(object sender, EventArgs e)
         {
-            OtelBilgi otel = new OtelBilgi();
-            otel.OtelID = Convert.ToInt32(cmbBox_otelSil.Text);
-
-            aramaDugum = aramaAgaci.OtelIDAra(Convert.ToInt32(cmbBox_otelSil.Text));
-            aramaAgaci.OtelSil(otel.OtelID);
-            string anahtar = aramaDugum.veri.Il_Ilce;
-            int hIndis = hashMap.hashFonksiyonu(anahtar, 3);
-            hashMap.tablo[hIndis].h.ElemanSil(aramaDugum.veri);
+            foreach (OtelBilgi o in ListOtel)
+            {
+                if (cmbBox_gOtelAd.SelectedItem.ToString() == o.OtelAdi)
+                {
+                    aramaDugum = aramaAgaci.OtelIDAra(o.OtelID);
+                    aramaAgaci.OtelSil(aramaDugum.veri.OtelID);
+                    string anahtar = aramaDugum.veri.Il_Ilce;
+                    int hIndis = hashMap.hashFonksiyonu(anahtar, 10);
+                    hashMap.tablo[hIndis].h.ElemanSil(aramaDugum.veri);
+                }
+            }
             MessageBox.Show("Kayıt Başarılı Bir Şekilde Silindi");
-
         }
 
-        private void tbpListeleOtel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_departman_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btn_preOrder_Click(object sender, EventArgs e)
         {
@@ -288,7 +282,7 @@ namespace OtelOtomasyonu
 
         private void cmbBox_otelListe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbBox_otelListe.Text=="Puan")
+            if (cmbBox_otelListe.Text == "Puan")
             {
                 string anahtar = cmbBox_ililce.SelectedItem.ToString();
                 textListeleOtel.Text = hashMap.GetOtelBilgiPuan(anahtar);
@@ -302,20 +296,10 @@ namespace OtelOtomasyonu
         private void cmbBox_yildiz_SelectedIndexChanged(object sender, EventArgs e)
         {
             string anahtar = cmbBox_ililce.SelectedItem.ToString();
-            int yildiz= int.Parse(cmbBox_yildiz.SelectedItem.ToString());
+            int yildiz = int.Parse(cmbBox_yildiz.SelectedItem.ToString());
             textListeleOtel.Text = hashMap.GetOtelBilgiYildiz(anahtar, yildiz);
         }
-
-        private void cmbBox_departman_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            aramaAgaci.PostOrder();
-           //lstBox_personel.Items.Add(aramaAgaci)
-        }
+        
         private void OtelDoldurCmbBox()
         {
             int i = 0;
@@ -343,7 +327,6 @@ namespace OtelOtomasyonu
         }
         private void btn_otelPuanVer_Click(object sender, EventArgs e)
         {
-            OtelBilgi ob = new OtelBilgi();
             foreach (OtelBilgi o in ListOtel)
             {
                 if (cmbBox_otelAdi.SelectedItem.ToString() == o.OtelAdi)
@@ -351,55 +334,33 @@ namespace OtelOtomasyonu
                     int temp = o.OtelPuani;
                     temp += Convert.ToInt32(cmbBox__otelPuan.Text);
                     o.OtelPuani = temp / 2;
-
-                    ob.OtelID = o.OtelID;
-                    ob.OtelAdi = o.OtelAdi;
-                    ob.Il_Ilce = o.Il_Ilce;
-                    ob.Adres = o.Adres;
-                    ob.EPosta = o.EPosta;
-                    ob.Telefon = o.Telefon;
-                    ob.OdaSayisi = o.OdaSayisi;
-                    ob.OdaTipi = o.OdaTipi;
-                    ob.OtelPuani = o.OtelPuani;
-                    ob.YildizSayisi = o.YildizSayisi;
+                    aramaAgaci.OtelBilgiGuncelle(o);
+                    int hIndis = hashMap.hashFonksiyonu(o.Il_Ilce, 10);
+                    hashMap.OtelBilgiGuncelle(hashMap.tablo[hIndis].h, o);
                     break;
                 }
-
             }
-            aramaAgaci.OtelBilgiGuncelle(ob);
-            int hIndis = hashMap.hashFonksiyonu(ob.Il_Ilce, 10);
-            hashMap.OtelBilgiGuncelle(hashMap.tablo[hIndis].h, ob);
+           
             MessageBox.Show("Puan verildi");
 
         }
 
         private void btn_yorumYap_Click(object sender, EventArgs e)
         {
-            OtelBilgi ob = new OtelBilgi();
             foreach (OtelBilgi o in ListOtel)
             {
                 if (cmbBox_otelAdi.SelectedItem.ToString() == o.OtelAdi)
                 {
-                    ob.otelYorum.YorumSahibiAd = "Ali";
-                    ob.otelYorum.YorumSahibiSoyad = "Veli";
-                    ob.otelYorum.Posta = "aliveli@gmail.com";
-                    ob.otelYorum.Yorum = txt_yorum.Text;
-
-                    ob.OtelID = o.OtelID;
-                    ob.OtelAdi = o.OtelAdi;
-                    ob.Il_Ilce = o.Il_Ilce;
-                    ob.Adres = o.Adres;
-                    ob.EPosta = o.EPosta;
-                    ob.Telefon = o.Telefon;
-                    ob.OdaSayisi = o.OdaSayisi;
-                    ob.OdaTipi = o.OdaTipi;
-                    ob.OtelPuani = o.OtelPuani;
-                    ob.YildizSayisi = o.YildizSayisi;
+                    o.otelYorum.YorumSahibiAd = "Ali";
+                    o.otelYorum.YorumSahibiSoyad = "Veli";
+                    o.otelYorum.Posta = "aliveli@gmail.com";
+                    o.otelYorum.Yorum = txt_yorum.Text;
+                    o.OtelYorumList.InsertLast(o);
+                    aramaAgaci.OtelBilgiGuncelle(o);
                     break;
                 }
             }
-            ob.OtelYorumList.InsertLast(ob);
-            aramaAgaci.OtelBilgiGuncelle(ob);
+            
             MessageBox.Show("Yorum Yapıldı");
         }
 
@@ -441,35 +402,90 @@ namespace OtelOtomasyonu
 
             //ob.PersonelBilgiList.InsertLast(ob);
             //aramaAgaci.OtelBilgiGuncelle(ob);
-            MessageBox.Show("yeni personel eklendi ");
+            MessageBox.Show("Yeni personel eklendi ");
 
 
         }
 
-        private void cmbBox_otelAdi_SelectedIndexChanged(object sender, EventArgs e)
+      
+        private void btn_perGuncelle_Click(object sender, EventArgs e)
         {
-
+            foreach (OtelBilgi o in ListOtel)
+            {
+                if (cmbBox_pergOtel.SelectedItem.ToString() == o.OtelAdi)
+                {
+                    PersonelBilgiGuncelle(o);
+                    break;
+                }
+            }
         }
-
-        private void cmbBox_gOtelAd_SelectedIndexChanged(object sender, EventArgs e)
+        private void btn_perGetir_Click(object sender, EventArgs e)
         {
-
+            foreach (OtelBilgi o in ListOtel)
+            {
+                if (cmbBox_pergOtel.SelectedItem.ToString() == o.OtelAdi)
+                {
+                    List<PersonelBilgi> list = o.PersonelBilgiList.ListePersonel();
+                    PersonelDoldurText(list);
+                    break;
+                }
+            }
         }
-
-        private void cmbBox_otelSil_SelectedIndexChanged(object sender, EventArgs e)
+        private void PersonelBilgiGuncelle(OtelBilgi o)
         {
+            foreach (PersonelBilgi p in ListPer)
+            {
+                if (p.TC == int.Parse(txt_gPerTc.Text))
+                {
+                    p.Ad = txt_gPerAd.Text;
+                    p.Soyad = txt_gPerSoyad.Text;
+                    p.Adres = txt_gPerAdres.Text;
+                    p.Telefon = txt_gPerTelefon.Text;
+                    p.EPosta = txt_gPerPosta.Text;
+                    p.Departman = txt_gPerDepartman.Text;
+                    p.Pozisyon = txt_gPerPozisyon.Text;
+                    p.PersonelPuani = Convert.ToInt32(txt_gPerPuan.Text);
 
+                    o.PersonelBilgiList.Find(p.TC).Data = p;
+                    aramaAgaci.OtelBilgiGuncelle(o);
+                    break;
+                }
+            }
         }
-
-        private void cmbBox_perOtel_SelectedIndexChanged(object sender, EventArgs e)
+        private void PersonelDoldurText(List<PersonelBilgi> list)
         {
-
+            foreach (PersonelBilgi p in list)
+            {
+                if (p.TC == int.Parse(txt_gPerTc.Text))
+                {
+                    txt_gPerAd.Text = p.Ad;
+                    txt_gPerSoyad.Text = p.Soyad;
+                    txt_gPerAdres.Text = p.Adres;
+                    txt_gPerTelefon.Text = p.Telefon;
+                    txt_gPerPosta.Text = p.EPosta;
+                    txt_gPerDepartman.Text = p.Departman;
+                    txt_gPerPozisyon.Text = p.Pozisyon;
+                    txt_gPerPuan.Text = p.PersonelPuani.ToString();
+                    break;
+                }
+            }
         }
 
-        private void cmbBox_pergOtel_SelectedIndexChanged(object sender, EventArgs e)
+        private void btn_perSil_Click(object sender, EventArgs e)
         {
-
+            foreach (PersonelBilgi p in ListPer)
+            {
+                if (Convert.ToInt32(txt_SilPerTc) == p.TC)
+                {
+                    int pos = otel.PersonelBilgiList.GetElement(p.TC);
+                    otel.PersonelBilgiList.DeletePosition(pos);
+                    break;
+                }
+            }
+            MessageBox.Show("Kayıt silindi");
         }
+
+    
     }
 }
 
