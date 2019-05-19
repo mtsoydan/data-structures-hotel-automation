@@ -328,6 +328,7 @@
             this.cmbBox_otelSil.Name = "cmbBox_otelSil";
             this.cmbBox_otelSil.Size = new System.Drawing.Size(166, 24);
             this.cmbBox_otelSil.TabIndex = 1;
+            this.cmbBox_otelSil.SelectedIndexChanged += new System.EventHandler(this.cmbBox_otelSil_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -417,6 +418,7 @@
             this.cmbBox_gOtelAd.Name = "cmbBox_gOtelAd";
             this.cmbBox_gOtelAd.Size = new System.Drawing.Size(166, 24);
             this.cmbBox_gOtelAd.TabIndex = 1;
+            this.cmbBox_gOtelAd.SelectedIndexChanged += new System.EventHandler(this.cmbBox_gOtelAd_SelectedIndexChanged);
             // 
             // cmbBox_gIL
             // 
@@ -931,6 +933,7 @@
             this.cmbBox_pergOtel.Name = "cmbBox_pergOtel";
             this.cmbBox_pergOtel.Size = new System.Drawing.Size(167, 24);
             this.cmbBox_pergOtel.TabIndex = 14;
+            this.cmbBox_pergOtel.SelectedIndexChanged += new System.EventHandler(this.cmbBox_pergOtel_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -1178,6 +1181,7 @@
             this.cmbBox_perOtel.Name = "cmbBox_perOtel";
             this.cmbBox_perOtel.Size = new System.Drawing.Size(167, 24);
             this.cmbBox_perOtel.TabIndex = 4;
+            this.cmbBox_perOtel.SelectedIndexChanged += new System.EventHandler(this.cmbBox_perOtel_SelectedIndexChanged);
             // 
             // txt_perDepartman
             // 
@@ -1993,6 +1997,7 @@
             this.cmbBox_otelAdi.Name = "cmbBox_otelAdi";
             this.cmbBox_otelAdi.Size = new System.Drawing.Size(202, 24);
             this.cmbBox_otelAdi.TabIndex = 1;
+            this.cmbBox_otelAdi.SelectedIndexChanged += new System.EventHandler(this.cmbBox_otelAdi_SelectedIndexChanged);
             // 
             // label61
             // 

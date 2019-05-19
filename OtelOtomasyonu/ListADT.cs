@@ -12,6 +12,7 @@ namespace OtelOtomasyonu
         public int Size = 0;
         public abstract void InsertFirst(object value);
         public abstract void InsertLast(object value);
+        public abstract void DeletePosition(int pos, object value);
         public abstract string DisplayElements();
 
     }

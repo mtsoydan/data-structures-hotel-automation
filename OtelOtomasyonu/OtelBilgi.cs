@@ -27,8 +27,8 @@ namespace OtelOtomasyonu
         
         public OtelBilgi()
         {
-            otelYorum = new OtelYorum();
-            personelBilgi = new PersonelBilgi();
+            //otelYorum = new OtelYorum();
+            //personelBilgi = new PersonelBilgi();
             OtelYorumList = new LinkedListOtelYorum();
             PersonelBilgiList = new LinkedListPersonelBİlgi();
 
