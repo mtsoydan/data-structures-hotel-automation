@@ -35,7 +35,7 @@
     <PersonelPuani>10</PersonelPuani>
   </Personel>
   <Personel id='4'>
-    <OtelId>2</OtelId>
+    <OtelId>7</OtelId>
     <Ad>Elif</Ad>
     <Soyad>Batur</Soyad>
     <Telefon>05587795477</Telefon>
@@ -46,7 +46,7 @@
     <PersonelPuani>5</PersonelPuani>
   </Personel>
   <Personel id='5'>
-    <OtelId>2</OtelId>
+    <OtelId>8</OtelId>
     <Ad>Ahmet</Ad>
     <Soyad>Boz</Soyad>
     <Telefon>05578957847</Telefon>

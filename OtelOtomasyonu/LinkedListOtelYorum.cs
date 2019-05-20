@@ -8,21 +8,6 @@ namespace OtelOtomasyonu
 {
     public class LinkedListOtelYorum : ListADT
     {
-        public override void DeleteFirst()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void DeleteLast()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void DeletePosition(int pos)
-        {
-            throw new NotImplementedException();
-        }
-
         public override string DisplayElements()
         {
             string temp = "";
@@ -40,16 +25,6 @@ namespace OtelOtomasyonu
             }
 
             return temp;
-        }
-
-        public override Node Find(int tc)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override int GetElement(int tc)
-        {
-            throw new NotImplementedException();
         }
 
         public override void InsertFirst(object value)
@@ -93,5 +68,7 @@ namespace OtelOtomasyonu
                 Size++;
             }
         }
+      
+
     }
 }

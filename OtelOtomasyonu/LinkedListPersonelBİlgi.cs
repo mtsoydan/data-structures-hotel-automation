@@ -17,12 +17,11 @@ namespace OtelOtomasyonu
             PersonelBilgi Personel_Bilgi;
             while (item != null)
             {
-                //todo : alttaki değişken değerlerini aktar
-
                 Personel_Bilgi = (PersonelBilgi)item.Data;
                 listPer.Add(Personel_Bilgi);
-                temp += "Personel TC " + Personel_Bilgi.TC + " " + "Personel Adı" + Personel_Bilgi.Ad + Personel_Bilgi.Soyad +
-                "Telefon" + Personel_Bilgi.Telefon + "Adres " + Personel_Bilgi.Adres + " Eposta " + Personel_Bilgi.EPosta + " Departman : "+Personel_Bilgi.Departman+ "Pozisyon  "+Personel_Bilgi.Pozisyon+"Personel Puanı ="+Personel_Bilgi.PersonelPuani + Environment.NewLine;
+                temp += "Personel TC: " + Personel_Bilgi.TC + " " + "Personel Adı: " + Personel_Bilgi.Ad + Personel_Bilgi.Soyad +
+                "Telefon: " + Personel_Bilgi.Telefon + "Adres: " + Personel_Bilgi.Adres + " Eposta: " + Personel_Bilgi.EPosta + " Departman: "
+                +Personel_Bilgi.Departman+ "Pozisyon: "+Personel_Bilgi.Pozisyon+"Personel Puanı: "+Personel_Bilgi.PersonelPuani + Environment.NewLine;
                 item = item.Next;
             }
 
@@ -80,7 +79,7 @@ namespace OtelOtomasyonu
             }
         }
 
-        public override void DeleteFirst()
+        public  void DeleteFirst()
         {
             //if (Head != null)
             //{
@@ -108,7 +107,7 @@ namespace OtelOtomasyonu
             }
         }
 
-        public override void DeleteLast()
+        public  void DeleteLast()
         {
             Node lastNode = Head;
             Node lastPrevNode = null;
@@ -127,7 +126,7 @@ namespace OtelOtomasyonu
                 Head = null;
         }
 
-        public override void DeletePosition(int position)
+        public  void DeletePosition(int position)
         {
             Node posNode = Head;
             Node prevPosNode = null;
@@ -179,7 +178,7 @@ namespace OtelOtomasyonu
       
 
 
-        public override int GetElement(int tc)
+        public  int GetElement(int tc)
         {
             PersonelBilgi per;
             Node tempHead = Head;
@@ -200,7 +199,7 @@ namespace OtelOtomasyonu
             return temp;
         }
 
-        public override Node Find(int tc)
+        public  Node Find(int tc)
         {
             Node retNode = null;
             Node tempNode = Head;

@@ -10,7 +10,7 @@ namespace OtelOtomasyonu
     {
         //public HeapDugumu[] heapArrayYıldız;
         public HeapDugumu[] heapArrayPuan;
-        
+
         private int maxSize;
         public int currentSize;
 
@@ -103,12 +103,12 @@ namespace OtelOtomasyonu
         {
             string temp = "";
 
-           for (int i = 0; i < currentSize; i++)
+            for (int i = 0; i < currentSize; i++)
             {
                 if (heapArrayPuan[i] != null)
                 {
 
-                    temp += "Adı-Soyadı:" + (heapArrayPuan[i].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[i].otel.Il_Ilce +
+                    temp += ">>Otel Adı:" + (heapArrayPuan[i].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[i].otel.Il_Ilce +
                         "Adresi:" + heapArrayPuan[i].otel.Adres + " " + "E-posta:" + heapArrayPuan[i].otel.EPosta + " " +
                          "Telefon Numarası:" + heapArrayPuan[i].otel.Telefon + " " + "Yıldız Sayısı:"
                         + heapArrayPuan[i].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[i].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[i].otel.OdaTipi + " " +
@@ -125,15 +125,17 @@ namespace OtelOtomasyonu
             string temp = "";
             for (int i = 0; i < currentSize; i++)
             {
-             if (heapArrayPuan[i] != null && heapArrayPuan[i].otel.OtelPuani == yildiz)
+                if (heapArrayPuan[i] != null && heapArrayPuan[i].otel.YildizSayisi == yildiz)
                 {
-                    temp += "Adı-Soyadı:" + (heapArrayPuan[i].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[i].otel.Il_Ilce +
-                    "Adresi:" + heapArrayPuan[i].otel.Adres + " " + "E-posta:" + heapArrayPuan[i].otel.EPosta + " "+
+                    temp += ">>Otel Adı:" + (heapArrayPuan[i].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[i].otel.Il_Ilce +
+                    "Adresi:" + heapArrayPuan[i].otel.Adres + " " + "E-posta:" + heapArrayPuan[i].otel.EPosta + " " +
                     "Telefon Numarası:" + heapArrayPuan[i].otel.Telefon + " " + "Yıldız Sayısı:"
                      + heapArrayPuan[i].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[i].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[i].otel.OdaTipi + " " +
-                    "Otel Puanı:" + heapArrayPuan[i].otel.OtelPuani) + Environment.NewLine;
+                    "Otel Puanı:" + heapArrayPuan[i].otel.OtelPuani) + Environment.NewLine + Environment.NewLine;
 
                 }
+                else
+                    temp += ("-- ");
             }
 
             return temp;

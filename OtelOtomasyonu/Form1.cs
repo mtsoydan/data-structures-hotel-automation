@@ -50,7 +50,7 @@ namespace OtelOtomasyonu
         public void XmlOtelListele()
         {
             aramaAgaci = new IkiliAramaAgaci();
-            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement otelXml in rootElement.Elements())
             {
@@ -79,7 +79,7 @@ namespace OtelOtomasyonu
         }
         public void XmlPersonelListele(int OtelID, OtelBilgi _o)
         {
-            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement perXml in rootElement.Elements())
             {
@@ -151,16 +151,7 @@ namespace OtelOtomasyonu
                 textListeleOtel.Text = aramaAgaci.DugumleriYazdir();
             }
         }
-
-        private void cmbBox_il_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBox_gIL_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btn_girisYap_Click(object sender, EventArgs e)
         {
@@ -190,7 +181,7 @@ namespace OtelOtomasyonu
             OtelBilgi otel = new OtelBilgi();
             otel.OtelID = otelId++;
             otel.OtelAdi = txt_otelAdi.Text;
-            otel.Il_Ilce = cmbBox_ililce.Text;
+            otel.Il_Ilce = cmbBox_ililceOtel.Text;
             otel.Adres = txt_otelAdres.Text;
             otel.EPosta = txt_OtelPosta.Text;
             otel.OdaSayisi = Convert.ToInt32(txt_OtelOdaSayisi.Text);
@@ -229,7 +220,7 @@ namespace OtelOtomasyonu
             {
                 if (cmbBox_gOtelAd.SelectedItem.ToString() == o.OtelAdi)
                 {
-                    o.Il_Ilce = cmbBox_gOtelILce.Text;
+                    o.Il_Ilce = cmbBox_gILIlce.Text;
                     o.Adres = txt_gOtelAdres.Text;
                     o.EPosta = txt_gOtelTelefon.Text;
                     o.Telefon = txt_gOtelPosta.Text;
@@ -237,7 +228,7 @@ namespace OtelOtomasyonu
                     o.OdaTipi = txt_gOtelOdaSayisi.Text;
                     o.OtelPuani = Convert.ToInt32(txt_gOtelOdaTipi.Text);
                     o.YildizSayisi = Convert.ToInt32(cmbBox_gOtelPuan.Text);
-
+                    
                     //agac ve hash içinde güncelleme
                     aramaAgaci.OtelBilgiGuncelle(o);
                     int hIndis = hashMap.hashFonksiyonu(o.Il_Ilce, 10);
@@ -254,7 +245,7 @@ namespace OtelOtomasyonu
         {
             foreach (OtelBilgi o in ListOtel)
             {
-                if (cmbBox_gOtelAd.SelectedItem.ToString() == o.OtelAdi)
+                if (cmbBox_otelSil.SelectedItem.ToString() == o.OtelAdi)
                 {
                     aramaDugum = aramaAgaci.OtelIDAra(o.OtelID);
                     aramaAgaci.OtelSil(aramaDugum.veri.OtelID);
@@ -315,7 +306,6 @@ namespace OtelOtomasyonu
             cmbBox_perOtel.Items.Clear();
             cmbBox_pergOtel.Items.Clear();
             cmbBox_Psil.Items.Clear();
-
             cmbBox_PerOtelPuanla.Items.Clear();
             cmbBoxPerDepartmanOtelListeleme.Items.Clear();
 
@@ -335,9 +325,6 @@ namespace OtelOtomasyonu
             cmbBox_Psil.Items.AddRange(temp);
             cmbBox_PerOtelPuanla.Items.AddRange(temp);
             cmbBoxPerDepartmanOtelListeleme.Items.AddRange(temp);
-
-
-
 
         }
         private void btn_otelPuanVer_Click(object sender, EventArgs e)
@@ -646,6 +633,51 @@ namespace OtelOtomasyonu
                     break;
                 }
             }
+        }
+
+        private void panel17_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbBox_otelSil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBox_gILIlce_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBox_ililceOtel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBox_gOtelAd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBox_perOtel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBox_pergOtel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBox_Psil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

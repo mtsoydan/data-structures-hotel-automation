@@ -62,7 +62,7 @@ namespace OtelOtomasyonu
                 hashDeger += key[i];
 
             }
-            sonuc = hashDeger % tabloBoyutu; //tablo boyutuna göre mo alma
+            sonuc = hashDeger % tabloBoyutu; //tablo boyutuna göre mod alma
             return sonuc;
         }
         public void OtelBilgiGuncelle(Heap h, OtelBilgi otel)
@@ -106,11 +106,10 @@ namespace OtelOtomasyonu
         {
             int hash = hashFonksiyonu(anahtar, 10);
             while (tablo[hash] != null && tablo[hash].anahtar != anahtar)
+            {
                 hash = (hash + 1) % tabloBoyutu;
-            if (tablo[hash] == null)
-                return null;
-            else
-                return tablo[hash].h.YıldızaGoreAra(yildiz);
+            }
+            return tablo[hash].h.YıldızaGoreAra(yildiz);
 
         }
     }
