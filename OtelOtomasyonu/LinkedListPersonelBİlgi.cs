@@ -31,7 +31,31 @@ namespace OtelOtomasyonu
         {
             return listPer;
         }
-
+        public string EnYukekPersonel(OtelBilgi otel)
+        {
+            string temp = "";
+            int tmp1 = 0 ;
+            Node item = Head;
+            
+            PersonelBilgi p;
+            while (item != null)
+            {
+                p = (PersonelBilgi)item.Data;
+                for (int i = 0; i < otel.PersonelBilgiList.Size; i++)
+                {
+                    if (p.PersonelPuani > tmp1 && otel.PersonelBilgiList.listPer[i].Ad == p.Ad  )
+                {
+                    tmp1 = p.PersonelPuani;
+                    temp = "";
+                    temp ="En Yüksek Puanlı Personel--"+Environment.NewLine+ p.Ad +"-"+p.Soyad + "- "+ p.PersonelPuani.ToString();
+                }
+            }
+               
+                item = item.Next;
+                
+            }
+            return temp;
+        }
         public override void InsertFirst(object value)
         {
 

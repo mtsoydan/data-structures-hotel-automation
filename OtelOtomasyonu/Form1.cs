@@ -50,7 +50,7 @@ namespace OtelOtomasyonu
         public void XmlOtelListele()
         {
             aramaAgaci = new IkiliAramaAgaci();
-            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement otelXml in rootElement.Elements())
             {
@@ -79,7 +79,7 @@ namespace OtelOtomasyonu
         }
         public void XmlPersonelListele(int OtelID, OtelBilgi _o)
         {
-            XDocument xDoc = XDocument.Load(@"C:\Users\BHR\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement perXml in rootElement.Elements())
             {
@@ -187,7 +187,7 @@ namespace OtelOtomasyonu
             otel.OdaSayisi = Convert.ToInt32(txt_OtelOdaSayisi.Text);
             otel.Telefon = txt_OtelTelefon.Text;
             otel.YildizSayisi = Convert.ToInt32(txt_OtelYildiz.Text);
-            otel.OtelPuani = Convert.ToInt32("");
+            //otel.OtelPuani = Convert.ToInt32("");
             otel.OdaTipi = txt_OtelOdaTipi.Text;
 
             hashMap.Add(otel.Il_Ilce, otel);
@@ -558,7 +558,15 @@ namespace OtelOtomasyonu
 
         private void button2_Click(object sender, EventArgs e)
         {
+            foreach (OtelBilgi o in ListOtel)
+            {
+                if (cmbBoxPerDepartmanOtelListeleme.SelectedItem.ToString() == o.OtelAdi)
+                {
 
+                   lstBox_personel.Items.Add( o.PersonelBilgiList.EnYukekPersonel(o));
+                }
+            }
+           
         }
 
         private void btn_PerPuanVer_Click(object sender, EventArgs e)
@@ -607,7 +615,6 @@ namespace OtelOtomasyonu
 
 
 
-                            break;
                         }
 
 

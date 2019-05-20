@@ -16,6 +16,7 @@ namespace OtelOtomasyonu
         private string dugumler;
         public string tempOrtalama = "";
         public string advancedTemp = " ";
+        public string tempPersonel = "";
         public bool kilit = false;
         public int Yukseklik = -1;
 
@@ -55,6 +56,7 @@ namespace OtelOtomasyonu
         {
             return perlist;
         }
+   
         public void PreOrder()
         {
             dugumler = "";
@@ -277,7 +279,30 @@ namespace OtelOtomasyonu
             ZiyaretAdvanced(kok, otel);
         }
 
+        public void preOrderMaxPersonel(OtelBilgi o)
+        {
+            ziyaretpersonel(kok,o);
+        }
 
+
+        private void ziyaretpersonel(IkiliAramaAgaciDugumu dugum,OtelBilgi _o)
+        {
+            
+                if (dugum.veri == null)
+                    return;
+                string Personel = dugum.veri.PersonelBilgiList.EnYukekPersonel(_o);
+                if (Personel != "")
+                {
+                    tempPersonel += dugum.veri.personelBilgi.Ad + "-" + dugum.veri.personelBilgi.Soyad + Environment.NewLine;
+
+                }
+            
+            
+
+            ziyaretpersonel(dugum.sol,_o);
+            ziyaretpersonel(dugum.sag,_o);
+
+        }
         private void ZiyaretAdvanced(IkiliAramaAgaciDugumu dugum, OtelBilgi otel)
         {
 

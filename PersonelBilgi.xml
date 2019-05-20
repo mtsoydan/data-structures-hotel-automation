@@ -111,4 +111,27 @@
     <Pozisyon>C</Pozisyon>
     <PersonelPuani>1</PersonelPuani>
   </Personel>
+     <Personel id='11'>
+    <OtelId>6</OtelId>
+    <Ad>hakan</Ad>
+    <Soyad>taşıyan</Soyad>
+    <Telefon>0559995477</Telefon>
+    <EPosta>azizekaya@gmail.com</EPosta>
+    <Adres>Alacati/Izmir Turkiye</Adres>
+    <Departman>S</Departman>
+    <Pozisyon>C</Pozisyon>
+    <PersonelPuani>5</PersonelPuani>
+  </Personel>
+     <Personel id='12'>
+    <OtelId>6</OtelId>
+    <Ad>mehmet</Ad>
+    <Soyad>Kaya</Soyad>
+    <Telefon>0559995477</Telefon>
+    <EPosta>azizekaya@gmail.com</EPosta>
+    <Adres>Alacati/Izmir Turkiye</Adres>
+    <Departman>S</Departman>
+    <Pozisyon>C</Pozisyon>
+    <PersonelPuani>7</PersonelPuani>
+  </Personel>
 </PerosnelBilgi>
+
