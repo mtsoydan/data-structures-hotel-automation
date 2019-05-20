@@ -421,8 +421,11 @@
             this.cmbBox_gILIlce.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBox_gILIlce.FormattingEnabled = true;
             this.cmbBox_gILIlce.Items.AddRange(new object[] {
-            "İzmir",
-            "Antalya"});
+            "Izmir-Cesme",
+            "Antalya-Demre",
+            "Mersin-Anamur",
+            "Izmir-Alacati",
+            "Nevsehir-Kapadokya"});
             this.cmbBox_gILIlce.Location = new System.Drawing.Point(193, 119);
             this.cmbBox_gILIlce.Name = "cmbBox_gILIlce";
             this.cmbBox_gILIlce.Size = new System.Drawing.Size(166, 24);
@@ -623,8 +626,11 @@
             this.cmbBox_ililceOtel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBox_ililceOtel.FormattingEnabled = true;
             this.cmbBox_ililceOtel.Items.AddRange(new object[] {
-            "İzmir",
-            "Antalya"});
+            "Izmir-Cesme",
+            "Antalya-Demre",
+            "Mersin-Anamur",
+            "Izmir-Alacati",
+            "Nevsehir-Kapadokya"});
             this.cmbBox_ililceOtel.Location = new System.Drawing.Point(193, 119);
             this.cmbBox_ililceOtel.Name = "cmbBox_ililceOtel";
             this.cmbBox_ililceOtel.Size = new System.Drawing.Size(166, 24);
