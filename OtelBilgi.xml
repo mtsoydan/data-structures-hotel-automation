@@ -66,7 +66,7 @@
     <YildizSayisi>4</YildizSayisi>
     <OdaSayisi>40</OdaSayisi>
     <OdaTipi>Kara Manzarali</OdaTipi>
-    <OtelPuani>5</OtelPuani>
+    <OtelPuani>7</OtelPuani>
   </Otel>
   <Otel id="9">
     <OtelAdi>TITANIC</OtelAdi>
@@ -99,6 +99,6 @@
     <YildizSayisi>2</YildizSayisi>
     <OdaSayisi>40</OdaSayisi>
     <OdaTipi>Kara Manzarali</OdaTipi>
-    <OtelPuani>7</OtelPuani>
+    <OtelPuani>5</OtelPuani>
   </Otel>
 </OtelBilgi>
