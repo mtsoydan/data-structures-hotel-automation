@@ -110,10 +110,6 @@ namespace OtelOtomasyonu
 
             }
         }
-
-
-
-
         public void XmlPersonelListele()
         {
             PersonelBilgi per = new PersonelBilgi();
@@ -318,6 +314,10 @@ namespace OtelOtomasyonu
             cmbBox_otelSil.Items.Clear();
             cmbBox_perOtel.Items.Clear();
             cmbBox_pergOtel.Items.Clear();
+            cmbBox_Psil.Items.Clear();
+
+            cmbBox_PerOtelPuanla.Items.Clear();
+            cmbBoxPerDepartmanOtelListeleme.Items.Clear();
 
             aramaAgaci.PreOrder();
             ListOtel = aramaAgaci.otelListe();
@@ -334,6 +334,7 @@ namespace OtelOtomasyonu
             cmbBox_pergOtel.Items.AddRange(temp);
             cmbBox_Psil.Items.AddRange(temp);
             cmbBox_PerOtelPuanla.Items.AddRange(temp);
+            cmbBoxPerDepartmanOtelListeleme.Items.AddRange(temp);
 
 
 
@@ -597,6 +598,36 @@ namespace OtelOtomasyonu
 
         private void btn_departman_Click(object sender, EventArgs e)
         {
+            ListPer = aramaAgaci.perListe();
+
+            foreach (OtelBilgi o in ListOtel)
+            {
+                if (cmbBoxPerDepartmanOtelListeleme.SelectedItem.ToString() == o.OtelAdi)
+                {
+                    List<PersonelBilgi> list = o.PersonelBilgiList.ListePersonel();
+                    foreach (PersonelBilgi p in list)
+                    {
+                        if (p.Departman == cmbBox_departman.SelectedItem.ToString())
+                        {
+                            lstBox_personel.Items.Add(p.TC);
+                            lstBox_personel.Items.Add(p.Ad);
+                            lstBox_personel.Items.Add(p.Soyad);
+
+                            lstBox_personel.Items.Add(p.Adres);
+                            lstBox_personel.Items.Add(p.Pozisyon);
+                            lstBox_personel.Items.Add(p.PersonelPuani);
+                            lstBox_personel.Items.Add("*************************************");
+
+
+
+                            break;
+                        }
+
+
+                    }
+                    break;
+                }
+            }
 
         }
 

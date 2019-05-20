@@ -155,6 +155,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.txt_PerPuanlaDepartman = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txt_PuanlaPerAdi = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_personelPuanGetir = new System.Windows.Forms.Button();
@@ -207,8 +209,8 @@
             this.txt_kullaniciAdi = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.txt_PerPuanlaDepartman = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbBoxPerDepartmanOtelListeleme = new System.Windows.Forms.ComboBox();
             this.tbpDuzenle.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl3.SuspendLayout();
@@ -1433,6 +1435,8 @@
             // tbpListelePersonel
             // 
             this.tbpListelePersonel.BackColor = System.Drawing.Color.Azure;
+            this.tbpListelePersonel.Controls.Add(this.cmbBoxPerDepartmanOtelListeleme);
+            this.tbpListelePersonel.Controls.Add(this.label9);
             this.tbpListelePersonel.Controls.Add(this.cmbBox_departman);
             this.tbpListelePersonel.Controls.Add(this.button2);
             this.tbpListelePersonel.Controls.Add(this.btn_departman);
@@ -1469,11 +1473,11 @@
             this.button2.BackColor = System.Drawing.Color.MediumAquamarine;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(27, 213);
+            this.button2.Location = new System.Drawing.Point(27, 300);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 32);
+            this.button2.Size = new System.Drawing.Size(202, 66);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Puan";
+            this.button2.Text = "Puana Göre Listele";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -1482,11 +1486,11 @@
             this.btn_departman.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_departman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_departman.ForeColor = System.Drawing.Color.White;
-            this.btn_departman.Location = new System.Drawing.Point(27, 404);
+            this.btn_departman.Location = new System.Drawing.Point(27, 210);
             this.btn_departman.Name = "btn_departman";
-            this.btn_departman.Size = new System.Drawing.Size(202, 42);
+            this.btn_departman.Size = new System.Drawing.Size(202, 70);
             this.btn_departman.TabIndex = 4;
-            this.btn_departman.Text = "Departman";
+            this.btn_departman.Text = "Departmana Göre Listele";
             this.btn_departman.UseVisualStyleBackColor = false;
             this.btn_departman.Click += new System.EventHandler(this.btn_departman_Click);
             // 
@@ -1504,7 +1508,7 @@
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label45.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.label45.Location = new System.Drawing.Point(23, 105);
+            this.label45.Location = new System.Drawing.Point(23, 135);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(206, 20);
             this.label45.TabIndex = 2;
@@ -1619,6 +1623,25 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(375, 377);
             this.panel17.TabIndex = 24;
+            // 
+            // txt_PerPuanlaDepartman
+            // 
+            this.txt_PerPuanlaDepartman.AcceptsReturn = true;
+            this.txt_PerPuanlaDepartman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_PerPuanlaDepartman.Location = new System.Drawing.Point(155, 237);
+            this.txt_PerPuanlaDepartman.Name = "txt_PerPuanlaDepartman";
+            this.txt_PerPuanlaDepartman.Size = new System.Drawing.Size(202, 27);
+            this.txt_PerPuanlaDepartman.TabIndex = 26;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(4, 244);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 20);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Departman Adı";
             // 
             // txt_PuanlaPerAdi
             // 
@@ -2254,24 +2277,25 @@
             this.pictureBox14.TabIndex = 3;
             this.pictureBox14.TabStop = false;
             // 
-            // txt_PerPuanlaDepartman
+            // label9
             // 
-            this.txt_PerPuanlaDepartman.AcceptsReturn = true;
-            this.txt_PerPuanlaDepartman.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_PerPuanlaDepartman.Location = new System.Drawing.Point(155, 237);
-            this.txt_PerPuanlaDepartman.Name = "txt_PerPuanlaDepartman";
-            this.txt_PerPuanlaDepartman.Size = new System.Drawing.Size(202, 27);
-            this.txt_PerPuanlaDepartman.TabIndex = 26;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.ForeColor = System.Drawing.Color.MediumAquamarine;
+            this.label9.Location = new System.Drawing.Point(23, 79);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(117, 20);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Oteli Seçiniz";
             // 
-            // label8
+            // cmbBoxPerDepartmanOtelListeleme
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(4, 244);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 20);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "Departman Adı";
+            this.cmbBoxPerDepartmanOtelListeleme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBoxPerDepartmanOtelListeleme.FormattingEnabled = true;
+            this.cmbBoxPerDepartmanOtelListeleme.Location = new System.Drawing.Point(27, 108);
+            this.cmbBoxPerDepartmanOtelListeleme.Name = "cmbBoxPerDepartmanOtelListeleme";
+            this.cmbBoxPerDepartmanOtelListeleme.Size = new System.Drawing.Size(167, 24);
+            this.cmbBoxPerDepartmanOtelListeleme.TabIndex = 15;
             // 
             // Form1
             // 
@@ -2520,6 +2544,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_PerPuanlaDepartman;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbBoxPerDepartmanOtelListeleme;
+        private System.Windows.Forms.Label label9;
     }
 }
 
