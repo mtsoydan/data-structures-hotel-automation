@@ -140,7 +140,7 @@
             this.cmbBoxPerDepartmanOtelListeleme = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbBox_departman = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_yuksekPuanPer = new System.Windows.Forms.Button();
             this.btn_departman = new System.Windows.Forms.Button();
             this.lstBox_personel = new System.Windows.Forms.ListBox();
             this.label45 = new System.Windows.Forms.Label();
@@ -334,7 +334,6 @@
             this.cmbBox_otelSil.Name = "cmbBox_otelSil";
             this.cmbBox_otelSil.Size = new System.Drawing.Size(166, 24);
             this.cmbBox_otelSil.TabIndex = 1;
-            this.cmbBox_otelSil.SelectedIndexChanged += new System.EventHandler(this.cmbBox_otelSil_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -384,7 +383,6 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(402, 473);
             this.panel10.TabIndex = 2;
-            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
             // 
             // cmbBox_gOtelPuan
             // 
@@ -414,7 +412,6 @@
             this.cmbBox_gOtelAd.Name = "cmbBox_gOtelAd";
             this.cmbBox_gOtelAd.Size = new System.Drawing.Size(166, 24);
             this.cmbBox_gOtelAd.TabIndex = 1;
-            this.cmbBox_gOtelAd.SelectedIndexChanged += new System.EventHandler(this.cmbBox_gOtelAd_SelectedIndexChanged);
             // 
             // cmbBox_gILIlce
             // 
@@ -430,7 +427,6 @@
             this.cmbBox_gILIlce.Name = "cmbBox_gILIlce";
             this.cmbBox_gILIlce.Size = new System.Drawing.Size(166, 24);
             this.cmbBox_gILIlce.TabIndex = 2;
-            this.cmbBox_gILIlce.SelectedIndexChanged += new System.EventHandler(this.cmbBox_gILIlce_SelectedIndexChanged);
             // 
             // txt_gOtelYildiz
             // 
@@ -635,7 +631,6 @@
             this.cmbBox_ililceOtel.Name = "cmbBox_ililceOtel";
             this.cmbBox_ililceOtel.Size = new System.Drawing.Size(166, 24);
             this.cmbBox_ililceOtel.TabIndex = 2;
-            this.cmbBox_ililceOtel.SelectedIndexChanged += new System.EventHandler(this.cmbBox_ililceOtel_SelectedIndexChanged);
             // 
             // txt_OtelYildiz
             // 
@@ -832,7 +827,6 @@
             this.cmbBox_Psil.Name = "cmbBox_Psil";
             this.cmbBox_Psil.Size = new System.Drawing.Size(167, 24);
             this.cmbBox_Psil.TabIndex = 11;
-            this.cmbBox_Psil.SelectedIndexChanged += new System.EventHandler(this.cmbBox_Psil_SelectedIndexChanged);
             // 
             // txt_SilPerTc
             // 
@@ -916,7 +910,6 @@
             this.cmbBox_pergOtel.Name = "cmbBox_pergOtel";
             this.cmbBox_pergOtel.Size = new System.Drawing.Size(167, 24);
             this.cmbBox_pergOtel.TabIndex = 14;
-            this.cmbBox_pergOtel.SelectedIndexChanged += new System.EventHandler(this.cmbBox_pergOtel_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -1166,7 +1159,6 @@
             this.cmbBox_perOtel.Name = "cmbBox_perOtel";
             this.cmbBox_perOtel.Size = new System.Drawing.Size(167, 24);
             this.cmbBox_perOtel.TabIndex = 4;
-            this.cmbBox_perOtel.SelectedIndexChanged += new System.EventHandler(this.cmbBox_perOtel_SelectedIndexChanged);
             // 
             // txt_perDepartman
             // 
@@ -1404,7 +1396,7 @@
             this.tbpListelePersonel.Controls.Add(this.cmbBoxPerDepartmanOtelListeleme);
             this.tbpListelePersonel.Controls.Add(this.label9);
             this.tbpListelePersonel.Controls.Add(this.cmbBox_departman);
-            this.tbpListelePersonel.Controls.Add(this.button2);
+            this.tbpListelePersonel.Controls.Add(this.btn_yuksekPuanPer);
             this.tbpListelePersonel.Controls.Add(this.btn_departman);
             this.tbpListelePersonel.Controls.Add(this.lstBox_personel);
             this.tbpListelePersonel.Controls.Add(this.label45);
@@ -1454,18 +1446,18 @@
             this.cmbBox_departman.TabIndex = 5;
             this.cmbBox_departman.Text = "       Departman";
             // 
-            // button2
+            // btn_yuksekPuanPer
             // 
-            this.button2.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(27, 300);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 69);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "En Yüksek Puanlı Personel";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_yuksekPuanPer.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btn_yuksekPuanPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_yuksekPuanPer.ForeColor = System.Drawing.Color.White;
+            this.btn_yuksekPuanPer.Location = new System.Drawing.Point(27, 300);
+            this.btn_yuksekPuanPer.Name = "btn_yuksekPuanPer";
+            this.btn_yuksekPuanPer.Size = new System.Drawing.Size(202, 69);
+            this.btn_yuksekPuanPer.TabIndex = 4;
+            this.btn_yuksekPuanPer.Text = "En Yüksek Puanlı Personel";
+            this.btn_yuksekPuanPer.UseVisualStyleBackColor = false;
+            this.btn_yuksekPuanPer.Click += new System.EventHandler(this.btn_yuksekPuanPer_Click);
             // 
             // btn_departman
             // 
@@ -1609,7 +1601,6 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(467, 381);
             this.panel17.TabIndex = 24;
-            this.panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.panel17_Paint);
             // 
             // txt_PerPuanlaDepartman
             // 
@@ -2496,7 +2487,7 @@
         private System.Windows.Forms.ComboBox cmbBox_gOtelPuan;
         private System.Windows.Forms.TextBox textListeleOtel;
         private System.Windows.Forms.ComboBox cmbBox_departman;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_yuksekPuanPer;
         private System.Windows.Forms.Button btn_departman;
         private System.Windows.Forms.ComboBox cmbBox_yildiz;
         private System.Windows.Forms.ComboBox cmbBox_Psil;

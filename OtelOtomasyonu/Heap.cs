@@ -8,7 +8,6 @@ namespace OtelOtomasyonu
 {
     public class Heap
     {
-        //public HeapDugumu[] heapArrayYıldız;
         public HeapDugumu[] heapArrayPuan;
 
         private int maxSize;
@@ -18,7 +17,6 @@ namespace OtelOtomasyonu
         {
             maxSize = maxHeapSize;
             currentSize = 0;
-            //heapArrayYıldız = new HeapDugumu[maxSize];
             heapArrayPuan = new HeapDugumu[maxSize];
 
         }
@@ -26,22 +24,7 @@ namespace OtelOtomasyonu
         {
             return currentSize == 0;
         }
-
-        //public bool InsertYıldız(OtelBilgi o)
-        //{
-        //    if (currentSize == maxSize)
-        //        return false;
-        //    HeapDugumu newHeapDugumu = new HeapDugumu(o);
-        //    heapArrayYıldız[currentSize] = newHeapDugumu;
-        //    MoveToUpYıldız(currentSize++);
-        //    return true;
-        //}
-
-        //private void MoveToUpYıldız(int v)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
+        
         public bool InsertOtel(OtelBilgi o)
         {
             if (currentSize == maxSize)
@@ -140,25 +123,7 @@ namespace OtelOtomasyonu
 
             return temp;
         }
-
-        //public string PuanaGoreListele()
-        //{
-        //    string temp = "";
-
-        //    for (int i = 0; i < currentSize; i++)
-        //    {
-        //       // if (heapArrayPuan[m] != null && heapArrayPuan[m].otel.OtelPuani == puan )
-        //            temp += "Adı-Soyadı:" + (heapArrayPuan[i].otel.OtelAdi + " " + "İl-İlçe:" + heapArrayPuan[i].otel.Il_Ilce+
-        //                "Adresi:" + heapArrayPuan[i].otel.Adres + " " + "E-posta:" + heapArrayPuan[i].otel.EPosta + " " +
-        //                 "Telefon Numarası:" + heapArrayPuan[i].otel.Telefon + " " + "Yıldız Sayısı:"
-        //                + heapArrayPuan[i].otel.YildizSayisi + " " + "Oda Sayısı: " + heapArrayPuan[i].otel.OdaSayisi + " " + "Oda Tipi:" + heapArrayPuan[i].otel.OdaTipi + " " +
-        //                "Otel Puanı:" + heapArrayPuan[i].otel.OtelPuani) + Environment.NewLine;
-
-        //    }
-
-        //    return temp;
-        //}
-
+        
         public HeapDugumu ElemanSil(OtelBilgi otel)
         {
             int indis = 0;

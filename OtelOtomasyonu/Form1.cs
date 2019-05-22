@@ -20,21 +20,17 @@ namespace OtelOtomasyonu
             txt_sifre.PasswordChar = '*';
 
         }
+        
         IkiliAramaAgaciDugumu aramaDugum;
         IkiliAramaAgaci aramaAgaci = new IkiliAramaAgaci();
-        // LinkedListPersonelBİlgi linkedPer = new LinkedListPersonelBİlgi();
-        //  LinkedListOtelYorum linkedYorum = new LinkedListOtelYorum();
         HashMap hashMap = new HashMap();
-        HashMapChain mapChain = new HashMapChain();
         OtelBilgi otel;
         List<OtelBilgi> ListOtel = new List<OtelBilgi>();
         List<PersonelBilgi> ListPer = new List<PersonelBilgi>();
-
-        //ersonelBilgi per;
-        //OtelYorum yorum;     
+         
         int otelId = 9;
 
-
+        //xml den otel çekiliyor
         private void Form1_Load(object sender, EventArgs e)
         {
             cmbBox_ililce.Enabled = false;
@@ -50,12 +46,12 @@ namespace OtelOtomasyonu
         public void XmlOtelListele()
         {
             aramaAgaci = new IkiliAramaAgaci();
-            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\ZİŞAN\Documents\GitHub\OtelOtomasyon\OtelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement otelXml in rootElement.Elements())
             {
                 otel = new OtelBilgi();
-                //xml den çekme
+                //xml den otel bilgilerini çekme
                 otel.OtelID = Convert.ToInt32(otelXml.Attribute("id").Value);
                 otel.OtelAdi = otelXml.Element("OtelAdi").Value;
                 otel.Il_Ilce = otelXml.Element("Il_Ilce").Value;
@@ -66,20 +62,17 @@ namespace OtelOtomasyonu
                 otel.OdaSayisi = Convert.ToInt32(otelXml.Element("OdaSayisi").Value);
                 otel.OdaTipi = otelXml.Element("OdaTipi").Value;
                 otel.OtelPuani = Convert.ToInt32(otelXml.Element("OtelPuani").Value);
-                //otel.PersonelBilgiList.InsertLast(XmlPersonelListele(otel.OtelID));
-                //arama ağacına ve hash e ekleme
-                //otel.PersonelBilgiList.InsertLast(XmlPersonelListele(otel.OtelID,otel));
+
                 XmlPersonelListele(otel.OtelID, otel);//Şu andaki otelin otel ID si yollanır
-                // cmbBox_perOtel.Items.Add(otel.OtelAdi);
                 aramaAgaci.OtelEkle(otel);
                 hashMap.Add(otel.Il_Ilce, otel);
-
-
+                
             }
         }
+        //yukarıda çekmiş olduğumuz otelin personel biliglerini xml den alıyoruz
         public void XmlPersonelListele(int OtelID, OtelBilgi _o)
         {
-            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
+            XDocument xDoc = XDocument.Load(@"C:\Users\ZİŞAN\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
             XElement rootElement = xDoc.Root;
             foreach (XElement perXml in rootElement.Elements())
             {
@@ -95,48 +88,14 @@ namespace OtelOtomasyonu
                     otel.personelBilgi.Departman = perXml.Element("Departman").Value;
                     otel.personelBilgi.Pozisyon = perXml.Element("Pozisyon").Value;
                     otel.personelBilgi.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
-                    // per.TC = Convert.ToInt32(perXml.Attribute("id").Value);
-                    // per.Ad = perXml.Element("Ad").Value;
-                    // per.Soyad = perXml.Element("Soyad").Value;
-                    //per.Adres = perXml.Element("Adres").Value;
-                    // per.Telefon = perXml.Element("Telefon").Value;
-                    // per.EPosta = perXml.Element("EPosta").Value;
-                    // per.Departman = perXml.Element("Departman").Value;
-                    // per.Pozisyon = perXml.Element("Pozisyon").Value;
-                    // per.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
+
                     _o.PersonelBilgiList.InsertLast(otel.personelBilgi);//otelin içine eleman kaydedilir
                     
                 }
 
             }
         }
-        public void XmlPersonelListele()
-        {
-            PersonelBilgi per = new PersonelBilgi();
-            XDocument xDoc = XDocument.Load(@"C:\Users\asus\Documents\GitHub\OtelOtomasyon\PersonelBilgi.xml");
-            XElement rootElement = xDoc.Root;
-            foreach (XElement perXml in rootElement.Elements())
-            {
-
-                //xml den çekme
-                per.TC = Convert.ToInt32(perXml.Attribute("id").Value);
-                per.Ad = perXml.Element("Ad").Value;
-                per.Soyad = perXml.Element("Soyad").Value;
-                per.Adres = perXml.Element("Adres").Value;
-                per.Telefon = perXml.Element("Telefon").Value;
-                per.EPosta = perXml.Element("EPosta").Value;
-                per.Departman = perXml.Element("Departman").Value;
-                per.Pozisyon = perXml.Element("Pozisyon").Value;
-                per.PersonelPuani = Convert.ToInt32(perXml.Element("PersonelPuani").Value);
-
-                aramaAgaci.OtelIDAra(Convert.ToInt32(perXml.Element("OtelId").Value));
-                ///
-
-                //arama agacına ekleyelim
-                otel.PersonelBilgiList.InsertLast(per);
-
-            }
-        }
+       
         private void cmbBox_otelListele_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbBox_otelListele.Text == "İl-İlçe")
@@ -146,7 +105,7 @@ namespace OtelOtomasyonu
             }
             else
             {
-                //listeleme tüm oteller
+                //puana göre, listeleme tüm oteller
                 aramaAgaci.PostOrder();
                 textListeleOtel.Text = aramaAgaci.DugumleriYazdir();
             }
@@ -187,22 +146,20 @@ namespace OtelOtomasyonu
             otel.OdaSayisi = Convert.ToInt32(txt_OtelOdaSayisi.Text);
             otel.Telefon = txt_OtelTelefon.Text;
             otel.YildizSayisi = Convert.ToInt32(txt_OtelYildiz.Text);
-            //otel.OtelPuani = Convert.ToInt32("");
             otel.OdaTipi = txt_OtelOdaTipi.Text;
 
-            hashMap.Add(otel.Il_Ilce, otel);
-            aramaAgaci.OtelEkle(otel);
+            hashMap.Add(otel.Il_Ilce, otel);//
+            aramaAgaci.OtelEkle(otel);//
             MessageBox.Show("Kayıt Başarılı Bir Şekilde Eklendi");
 
         }
+        //seçilen ilk ilçeye göre otel listeleme
         private void cmbBox_ililce_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 cmbBox_otelListe.Enabled = true;
                 string anahtar = cmbBox_ililce.SelectedItem.ToString();
-                //int hIndis = hashMap.hashFonksiyonu(anahtar, 10);
-                //textListeleOtel.Text = hashMap.tablo[hIndis].h.PuanaGoreListele();
                 textListeleOtel.Text = hashMap.GetOtelBilgiPuan(anahtar);
             }
             catch (Exception)
@@ -212,10 +169,10 @@ namespace OtelOtomasyonu
             }
           
         }
-
+        //orel güncelleniyor
         private void btn_otelGuncelle_Click(object sender, EventArgs e)
         {
-            // OtelBilgi otel = new OtelBilgi();
+         
             foreach (OtelBilgi o in ListOtel)
             {
                 if (cmbBox_gOtelAd.SelectedItem.ToString() == o.OtelAdi)
@@ -276,7 +233,7 @@ namespace OtelOtomasyonu
             aramaAgaci.PostOrder();
             textListeleOtel.Text = aramaAgaci.DugumleriYazdir();
         }
-
+        //seçilmiş il-ilçedeki otellrin puan ve yıldıza göre listelenmesi
         private void cmbBox_otelListe_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbBox_otelListe.Text == "Puan")
@@ -296,7 +253,7 @@ namespace OtelOtomasyonu
             int yildiz = int.Parse(cmbBox_yildiz.SelectedItem.ToString());
             textListeleOtel.Text = hashMap.GetOtelBilgiYildiz(anahtar, yildiz);
         }
-        
+        //combobox lara otel isimlerini yerleştirme
         private void OtelDoldurCmbBox()
         {
             int i = 0;
@@ -327,6 +284,7 @@ namespace OtelOtomasyonu
             cmbBoxPerDepartmanOtelListeleme.Items.AddRange(temp);
 
         }
+        //otele puan verme
         private void btn_otelPuanVer_Click(object sender, EventArgs e)
         {
             foreach (OtelBilgi o in ListOtel)
@@ -366,11 +324,10 @@ namespace OtelOtomasyonu
             
             MessageBox.Show("Yorum Yapıldı");
         }
-
+        //personel kayıt 
         private void btn_perKaydet_Click(object sender, EventArgs e)
         {
-            // OtelBilgi ob = new OtelBilgi();
-            //otel.personelBilgi = new PersonelBilgi();
+          
             foreach (OtelBilgi o in ListOtel)
             {
                 if (cmbBox_perOtel.SelectedItem.ToString() == o.OtelAdi)
@@ -386,28 +343,14 @@ namespace OtelOtomasyonu
                     o.personelBilgi.TC = int.Parse(txt_perTC.Text);
                     o.personelBilgi.Telefon = txt_perTelefon.Text;
 
-                    o.PersonelBilgiList.InsertLast(o.personelBilgi);
-                    aramaAgaci.OtelBilgiGuncelle(o);
+                    o.PersonelBilgiList.InsertLast(o.personelBilgi);//
+                    aramaAgaci.OtelBilgiGuncelle(o);//
 
-                    //ob.OtelID = o.OtelID;
-                    //ob.OtelAdi = o.OtelAdi;
-                    //ob.Il_Ilce = o.Il_Ilce;
-                    //ob.Adres = o.Adres;
-                    //ob.EPosta = o.EPosta;
-                    //ob.Telefon = o.Telefon;
-                    //ob.OdaSayisi = o.OdaSayisi;
-                    //ob.OdaTipi = o.OdaTipi;
-                    //ob.OtelPuani = o.OtelPuani;
-                    //ob.YildizSayisi = o.YildizSayisi;
+          
                     break;
                 }
             }
-
-            //ob.PersonelBilgiList.InsertLast(ob);
-            //aramaAgaci.OtelBilgiGuncelle(ob);
             MessageBox.Show("Yeni personel eklendi ");
-
-
         }
 
       
@@ -423,6 +366,7 @@ namespace OtelOtomasyonu
                 }
             }
         }
+        //listeden güncellenecek personel  bilgisini getirme
         private void btn_perGetir_Click(object sender, EventArgs e)
         {
             foreach (OtelBilgi o in ListOtel)
@@ -437,24 +381,7 @@ namespace OtelOtomasyonu
         }
         private void PersonelBilgiGuncelle(OtelBilgi o)
         {
-            //foreach (PersonelBilgi p in ListPer)
-            //{
-            //    if (p.TC == int.Parse(txt_gPerTc.Text))
-            //    {
-            //        p.Ad = txt_gPerAd.Text;
-            //        p.Soyad = txt_gPerSoyad.Text;
-            //        p.Adres = txt_gPerAdres.Text;
-            //        p.Telefon = txt_gPerTelefon.Text;
-            //        p.EPosta = txt_gPerPosta.Text;
-            //        p.Departman = txt_gPerDepartman.Text;
-            //        p.Pozisyon = txt_gPerPozisyon.Text;
-            //        p.PersonelPuani = Convert.ToInt32(txt_gPerPuan.Text);
-
-            //        o.PersonelBilgiList.Find(p.TC).Data = p;
-            //        aramaAgaci.OtelBilgiGuncelle(o);
-            //        break;
-            //    }
-            //}
+      
             foreach (PersonelBilgi p in ListPer)
             {
                 if (p.TC == int.Parse(txt_gPerTc.Text))
@@ -476,6 +403,7 @@ namespace OtelOtomasyonu
             }
 
         }
+        //TC ye göre aranan personele puan ekleme
         private void PersonelPuanEkle(OtelBilgi o)
         {
            
@@ -493,6 +421,7 @@ namespace OtelOtomasyonu
             }
 
         }
+        
         private void PersonelDoldurText(List<PersonelBilgi> list)
         {
             foreach (PersonelBilgi p in list)
@@ -510,9 +439,9 @@ namespace OtelOtomasyonu
                     break;
                 }
                 
-
             }
         }
+        //puan verilecek personel için tc ile arama
         private void PuanlamaPersonelDoldur(List<PersonelBilgi> list)
         {
             foreach (PersonelBilgi p in list)
@@ -527,7 +456,7 @@ namespace OtelOtomasyonu
 
             }
         }
-        
+        //Personel silme
     private void btn_perSil_Click(object sender, EventArgs e)
         {
             ListPer = aramaAgaci.perListe();
@@ -556,19 +485,7 @@ namespace OtelOtomasyonu
             MessageBox.Show("Kayıt silindi");
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            foreach (OtelBilgi o in ListOtel)
-            {
-                if (cmbBoxPerDepartmanOtelListeleme.SelectedItem.ToString() == o.OtelAdi)
-                {
-
-                   lstBox_personel.Items.Add( o.PersonelBilgiList.EnYukekPersonel(o));
-                }
-            }
-           
-        }
-
+      //personele puan verilir
         private void btn_PerPuanVer_Click(object sender, EventArgs e)
         {
             try
@@ -590,7 +507,7 @@ namespace OtelOtomasyonu
             }
             
         }
-
+        //önce oteli sonra personel seçilerek departman listelenir.
         private void btn_departman_Click(object sender, EventArgs e)
         {
             ListPer = aramaAgaci.perListe();
@@ -613,20 +530,14 @@ namespace OtelOtomasyonu
                             lstBox_personel.Items.Add(p.PersonelPuani);
                             lstBox_personel.Items.Add("*************************************");
 
-
-
                         }
-
-
                     }
                     break;
                 }
             }
 
         }
-
-        
-
+        //personel getirme puanlamak için
         private void btn_personelPuanGetir_Click_1(object sender, EventArgs e)
         {
             ListPer = aramaAgaci.perListe();
@@ -641,50 +552,17 @@ namespace OtelOtomasyonu
                 }
             }
         }
-
-        private void panel17_Paint(object sender, PaintEventArgs e)
+        //yuksek puanlı personeli linked listten getirme
+        private void btn_yuksekPuanPer_Click(object sender, EventArgs e)
         {
+            foreach (OtelBilgi o in ListOtel)
+            {
+                if (cmbBoxPerDepartmanOtelListeleme.SelectedItem.ToString() == o.OtelAdi)
+                {
 
-        }
-
-        private void panel10_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cmbBox_otelSil_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBox_gILIlce_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBox_ililceOtel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBox_gOtelAd_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBox_perOtel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBox_pergOtel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBox_Psil_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+                    lstBox_personel.Items.Add(o.PersonelBilgiList.EnYukekPersonel(o));
+                }
+            }
         }
     }
 }

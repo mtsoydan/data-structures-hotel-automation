@@ -25,14 +25,7 @@ namespace OtelOtomasyonu
         {
             int hash = hashFonksiyonu(key, 10);
             int a = hash;
-            //while (tablo[hash] != null && tablo[hash].anahtar != key)
-            //{
-            //    hash = (hash + 1) % tabloBoyutu;
-            //}
-            //tablo[hash] = new HashEntry(key, value);
-            //tablo[hash].h = new Heap(100);
-            //tablo[hash].h.InsertOtel(value);
-
+           
 
             if (tablo[hash] == null)
             {
@@ -86,22 +79,7 @@ namespace OtelOtomasyonu
             return tablo[hash].h.PuanaGoreListele();
 
         }
-         //while (tablo[hash] != null )
-         //   {
-         //       if (tablo[hash].anahtar == anahtar)
-         //       {
-         //           temp += tablo[hash].h.PuanaGoreListele();
-         //           hash = (hash + 1) % tabloBoyutu;
-         //       }
-         //       else
-         //       {
-         //           hash = (hash + 1) % tabloBoyutu;
-         //       }
-                
-               
-         //   }
-           
-         //   return temp;
+         
         public string GetOtelBilgiYildiz(string anahtar,int yildiz)
         {
             int hash = hashFonksiyonu(anahtar, 10);
