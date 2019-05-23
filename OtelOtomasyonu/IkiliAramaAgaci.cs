@@ -327,8 +327,6 @@ namespace OtelOtomasyonu
             {
                 Yukseklik++;
                 DerinlikBulInt(dugum.sol); //Düğümün solu oldukça sola git
-
-
             }
         }
 
@@ -339,4 +337,3 @@ namespace OtelOtomasyonu
         }
     }
 }
-//Otel ID si 1 olan otellerin personellerini listelemek

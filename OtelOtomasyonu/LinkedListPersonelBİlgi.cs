@@ -105,20 +105,6 @@ namespace OtelOtomasyonu
 
         public  void DeleteFirst()
         {
-            //if (Head != null)
-            //{
-            //    Node tempHeadNext = this.Head.Next;
-            //    if (tempHeadNext == null)
-            //    {
-            //        Head = null;
-            //    }
-            //    else
-            //    {
-            //        Head = tempHeadNext;
-            //        Size--;
-            //    }
-
-            //}
             Node temp = this.Head.Next;
             if (temp.Next == null)
             {
@@ -167,41 +153,9 @@ namespace OtelOtomasyonu
                 posNode = posNode.Next;
                 count++;
             }
-            //Node tmp = Head;
-            //Node tmpPrev = null;
-            //int sayac = 0;
-            //while (tmp != null)
-            //{
-            //    if (position < Size)
-            //    {
-            //        if (tmpPrev == null)
-            //        {
-            //            DeleteFirst();
-            //            break;
-            //        }
-            //        if (sayac == (position))
-            //        {
-
-            //            tmpPrev.Next = tmp.Next;
-            //            tmp = null;
-            //            Size--;
-            //            break;
-            //        }
-            //        tmpPrev = tmp;
-            //        tmp = tmp.Next;
-            //        sayac++;
-            //    }
-
-
-
-
-
-            //}
         }
 
       
-
-
         public  int GetElement(int tc)
         {
             PersonelBilgi per;

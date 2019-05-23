@@ -55,12 +55,10 @@
     </Compile>
     <Compile Include="HashEntry.cs" />
     <Compile Include="HashMap.cs" />
-    <Compile Include="HashMapChain.cs" />
     <Compile Include="Heap.cs" />
     <Compile Include="HeapDugumu.cs" />
     <Compile Include="IkiliAramaAgaci.cs" />
     <Compile Include="IkiliAramaAgaciDugumu.cs" />
-    <Compile Include="linkedHashEntry.cs" />
     <Compile Include="LinkedListOtelYorum.cs" />
     <Compile Include="LinkedListPersonelBİlgi.cs" />
     <Compile Include="ListADT.cs" />

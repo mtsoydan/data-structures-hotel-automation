@@ -68,7 +68,6 @@ namespace OtelOtomasyonu
                 Size++;
             }
         }
-      
-
+     
     }
 }
