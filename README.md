@@ -18,10 +18,10 @@ Mustafa Taha SOYDAN - 162805003 (https://github.com/Mtsoydan)
 
 Zişan KARSATAR - 172802058 (https://github.com/zisankarsatar)
 
-#1 Ödevin Gerçekleştirildiği Platform ve Sürümü, Kullanılan Dil
+#1 Ödevin Gerçekleştirildiği Platform ve Sürümü, Kullanılan Dil <br>
 Microsoft Visual Studio 2017- C#, XML
 
-#2 Gerçekleştirilen Projenin Kısa Tanımı
+#2 Gerçekleştirilen Projenin Kısa Tanımı \n
 Geliştirdiğimiz otel bilgi sisteminde otellere ait bilgiler bulundurmaktadır. Ayrıca her bir otelde çalışan kişi ve otel yorumları bulunmaktadır. Yönetici girişi ile otel ve personel bilgilerini güncellenip, silme işlemi yapılmaktadır. Yeni otel ve personel de eklenebilmektedir. Personellere puan verebilir en yüksek puana sahip personel gösterebilmektedir.
 Müşteriler de bu sisteme giriş yapıp, aradıkları il-ilçe’deki tüm otel bilgilerini listeleyip görebilir. Ayrıca, o il-ilçe’deki en yüksek otel puanına sahip olan otelleri ve seçmiş oldukları yıldız sayısına sahip olan otelleri filtreleyip, listeleyebilmektedir. Otele ve personele puan verebilir, yorumda bulunabilir.
 #3 Veri Yapısı Kataloğu
