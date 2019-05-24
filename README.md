@@ -18,7 +18,7 @@ Mustafa Taha SOYDAN - 162805003 (https://github.com/Mtsoydan)
 
 Zişan KARSATAR - 172802058 (https://github.com/zisankarsatar)
 
-#1 Ödevin Gerçekleştirildiği Platform ve Sürümü, Kullanılan Dil <br> <br>
+#1 Ödevin Gerçekleştirildiği Platform ve Sürümü, Kullanılan Dil <br>
 Microsoft Visual Studio 2017- C#, XML
 
 #2 Gerçekleştirilen Projenin Kısa Tanımı  <br>  
