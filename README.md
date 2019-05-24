@@ -21,16 +21,16 @@ Zişan KARSATAR - 172802058 (https://github.com/zisankarsatar)
 #1 Ödevin Gerçekleştirildiği Platform ve Sürümü, Kullanılan Dil <br>
 Microsoft Visual Studio 2017- C#, XML
 
-#2 Gerçekleştirilen Projenin Kısa Tanımı \n
+#2 Gerçekleştirilen Projenin Kısa Tanımı  <br>  
 Geliştirdiğimiz otel bilgi sisteminde otellere ait bilgiler bulundurmaktadır. Ayrıca her bir otelde çalışan kişi ve otel yorumları bulunmaktadır. Yönetici girişi ile otel ve personel bilgilerini güncellenip, silme işlemi yapılmaktadır. Yeni otel ve personel de eklenebilmektedir. Personellere puan verebilir en yüksek puana sahip personel gösterebilmektedir.
 Müşteriler de bu sisteme giriş yapıp, aradıkları il-ilçe’deki tüm otel bilgilerini listeleyip görebilir. Ayrıca, o il-ilçe’deki en yüksek otel puanına sahip olan otelleri ve seçmiş oldukları yıldız sayısına sahip olan otelleri filtreleyip, listeleyebilmektedir. Otele ve personele puan verebilir, yorumda bulunabilir.
-#3 Veri Yapısı Kataloğu
-1-Kullanılan Veri Yapıları
+#3 Veri Yapısı Kataloğu  <br>  
+1-Kullanılan Veri Yapıları  <br>
 Linked List: Elemanlarının bir sonraki (Next) elemanın hafızadaki yerine işaret ettiği zincir şeklinde bir veri yapısıdır.
 İkili Arama Ağacı: Doğrusal olmayan belirli niteliklere sahip iki boyutlu veri yapılarıdır.
 Heap: Eksiksiz (complete) r ve Ebeveyn (parent) düğümün değeri her zaman çocukların değerinden büyük (küçük) veya eşit olan ikili ağaçtır.
 Hash Table: Aranan anahtar elemana doğrudan erişerek aradığımız indexi bulmaya yarayan veri yapısıdır.
-2-Kullanılan Classlar
+2-Kullanılan Classlar  <br>
 HashEntry: Bu class’ta hash tablomuzun propertyleri bulunmaktadır.
 HashMap: Hash tablomuz oluşmaktadır.
 Heap: Bu classta düğümlerimize otellerimizi otel puanına veya otel yıldız sayısına göre yerleştiriyoruz. 
@@ -44,7 +44,7 @@ Node: Linked listte kullanmak için oluşturulan nodeların classı.
 OtelBilgi: Otel Bilgi propertyleri.
 Otel Yorum: Otel yorumu propertyleri.
 PersonelBilgi: Personel ile ilgili propertyleri tutmaktadır.
-3-Kullanılan Metotlar
+3-Kullanılan Metotlar  <br>
 InsertFirst: İlk elemanı eklemek için kullandığımız metottur.
 InsertLast: Son elemanı eklemek için kullandığımız metottur.
 EnYuksekPersonel: Girilen otel bilgisine göre otelin personel bilgisi bulunur ve en yüksek puanlı personel ekrana yazdırılır.
@@ -78,12 +78,12 @@ PuanaGoreListele: Otel bilgilerini puana göre listeleme.
 YıldızaGöreAra: Otelleri yıldız sayısına göre arama yapmak için oluşturulmuş metot.
 ElemanSil: Gelen parametreye göre heap içinde arama yapar ve bulunan indisteki otel bilgisini siler.
 
-#6 Proje Youtube Linki  
+#4 Proje Youtube Linki : https://youtu.be/EgisgFTPVhA 
 
 
-#7 Proje GitHub Linki: https://github.com/mtsoydan/OtelOtomasyon
+#5 Proje GitHub Linki: https://github.com/mtsoydan/OtelOtomasyon
 
-#8 Proje Gerçekleştiriminde Yararlanılan Kaynaklar
+#6 Proje Gerçekleştiriminde Yararlanılan Kaynaklar
 https://www.geeksforgeeks.org/
 https://stackoverflow.com/
 
